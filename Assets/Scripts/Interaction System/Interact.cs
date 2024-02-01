@@ -53,7 +53,7 @@ public class Interact : MonoBehaviour
         // Regarde si il y a un objet avec lequel interagir ?la distance appropri?
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
-            // Assigne le script InteractableObject de l'objet touch??la variable interactable object
+            // Assigne le script InteractableObject de l'objet toucher à la variable interactable object
             Interactable interactableObject = hit.collider.GetComponent<Interactable>();
 
             // Affiche le texte UI si il y ?un objet détect?par le raycast qui ?un composant InteractableObject

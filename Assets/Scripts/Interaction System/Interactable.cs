@@ -14,6 +14,7 @@ public class Interactable : MonoBehaviour
             // Affiche l'objet avec lequel on intéragit dans la console Unity
             Debug.Log("Interacting with " + gameObject.name);
 
+            #region Door
             //Regarde si l'objet à un tag "Button"
             if (this.gameObject.CompareTag("Button"))
             {
@@ -32,6 +33,15 @@ public class Interactable : MonoBehaviour
                     doorAudio.Play();
                 }
             }
+            #endregion
+
+            #region Object
+            //Regarde si l'objet à un tag Object
+            if (this.gameObject.CompareTag("Object"))
+            {
+                Destroy(this.gameObject);
+            }
+            #endregion
         }
     }
 }
