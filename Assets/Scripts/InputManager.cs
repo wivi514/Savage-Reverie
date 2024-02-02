@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    private InventorySystem inventorySystem;
+
     PlayerControls controls;
     PlayerMovement pm;
 
@@ -13,6 +15,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
+        inventorySystem = GetComponent<InventorySystem>();
         pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         // Enable the New Input System from unity
@@ -27,12 +30,17 @@ public class InputManager : MonoBehaviour
     {
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
+
+        controls.Player.Inventory.performed += ctx => inventorySystem.ToggleInventory();
+
     }
 
     private void OnDisable()
     {
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
+
+        controls.Player.Inventory.performed -= ctx => inventorySystem.ToggleInventory();
     }
 
     private void MoveInput(InputAction.CallbackContext ctx)
@@ -47,4 +55,5 @@ public class InputManager : MonoBehaviour
         // When movement is canceled, set the movement input to zero to stop the player
         movementInput = Vector2.zero;
     }
+
 }

@@ -1,5 +1,5 @@
 {
-    "name": "Player Controls",
+    "name": "PlayerControls",
     "maps": [
         {
             "name": "Player",
@@ -19,6 +19,15 @@
                     "type": "Value",
                     "id": "1308b8b2-1e78-4edb-bc9f-71f1875d468a",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Value",
+                    "id": "a39e5085-0bb0-4eb4-9abf-b86ba2e92abe",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -88,6 +97,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b70e953c-d882-4cb0-9101-b1bfb4221858",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
