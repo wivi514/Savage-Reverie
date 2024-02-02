@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     //Variables
-    [SerializeField] GameObject interactable;
+    [SerializeField] GameObject interactable; // À utiliser pour les portes c'est surtout au cas ou l'on ouvre les portes avec un bouton
 
     public void Interact()
     {
