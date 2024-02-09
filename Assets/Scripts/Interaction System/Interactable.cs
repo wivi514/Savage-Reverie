@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Interactable : MonoBehaviour
 {
@@ -43,13 +42,13 @@ public class Interactable : MonoBehaviour
             #endregion
 
             #region Object
-            //Regarde si l'objet à un tag Object
+            // Check if the object has a Object tag
             if (this.gameObject.CompareTag("Object"))
             {
                 Inventory inventory = FindObjectOfType<Inventory>(); // Find the Inventory script
                 if (inventory != null)
                 {
-                    PickableObject item = interactable.GetComponent<PickableObject>(); // Assuming item scripts are attached to objects
+                    PickableObject item = interactable.GetComponent<PickableObject>();
                     if (item != null)
                     {
                         inventory.AddItem(item); // Add the item to the inventory
@@ -63,7 +62,7 @@ public class Interactable : MonoBehaviour
                 {
                     Debug.LogWarning("No Inventory component found in the scene.");
                 }
-                Destroy(interactable); // Destroy the interactable object
+                Destroy(interactable); // Destroy the interactable object from the scene once it's picked up
             }
             #endregion
         }

@@ -53,4 +53,12 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(moveDirection.x * speed * speedJumpModifier, rb.velocity.y, moveDirection.z * speed * speedJumpModifier);
         }
     }
+
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(new Vector3(0, jumpForce));
+        }
+    }
 }

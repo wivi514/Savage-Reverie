@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     PlayerControls controls;
     Interact interact;
+    PlayerMovement playerMovement;
 
     public static Vector2 movementInput;
 
@@ -15,6 +16,8 @@ public class InputManager : MonoBehaviour
         controls = new PlayerControls();
 
         interact = GameObject.Find("Player").GetComponent<Interact>();
+
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         // Enable the New Input System from unity
         controls.Player.Enable();
@@ -28,6 +31,7 @@ public class InputManager : MonoBehaviour
     {
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
+        controls.Player.Jump.performed += JumpInput;
 
         controls.Player.Interact.performed += interact.TryInteract;
     }
@@ -36,6 +40,7 @@ public class InputManager : MonoBehaviour
     {
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
+        controls.Player.Jump.performed -= JumpInput;
 
         controls.Player.Interact.performed -= interact.TryInteract;
     }
@@ -51,5 +56,10 @@ public class InputManager : MonoBehaviour
     {
         // When movement is canceled, set the movement input to zero to stop the player
         movementInput = Vector2.zero;
+    }
+
+    private void JumpInput(InputAction.CallbackContext ctx)
+    {
+
     }
 }
