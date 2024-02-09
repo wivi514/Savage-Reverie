@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2259.557, g: 2400.1604, b: 3496.3403, a: 1}
+  m_IndirectSpecularColor: {r: 2258.8987, g: 2399.965, b: 3496.7231, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 7b50a25da8c1c4d4fa45dde99521c583,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -493,7 +494,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &177264756
 BoxCollider:
@@ -1111,6 +1112,7 @@ GameObject:
   - component: {fileID: 515990897}
   - component: {fileID: 515990898}
   - component: {fileID: 515990899}
+  - component: {fileID: 515990900}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1259,6 +1261,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 3
+--- !u!114 &515990900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515990892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2277ef51b777c14c9af94a278e99e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &535766600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1291,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &535766601
 BoxCollider:
@@ -1628,7 +1643,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &819312500
 Transform:
@@ -1913,7 +1928,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1066605954
 BoxCollider:
@@ -2312,7 +2327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e84fcf452c78b4c8f48a6f657ebd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickable: {fileID: 0}
 --- !u!54 &1346936732
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2321,7 +2335,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346936730}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3175,7 +3189,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1901228129
 BoxCollider:
@@ -3449,7 +3463,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &2111603878
 MeshCollider:

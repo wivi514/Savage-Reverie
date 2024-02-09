@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class MiscObject : MonoBehaviour
 {
-    public PickableObject pickable;
-
     void Start()
     {
         

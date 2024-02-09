@@ -6,14 +6,15 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     PlayerControls controls;
-    PlayerMovement pm;
+    Interact interact;
 
     public static Vector2 movementInput;
 
     private void Awake()
     {
         controls = new PlayerControls();
-        pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+        interact = GameObject.Find("Player").GetComponent<Interact>();
 
         // Enable the New Input System from unity
         controls.Player.Enable();
@@ -27,12 +28,16 @@ public class InputManager : MonoBehaviour
     {
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
+
+        controls.Player.Interact.performed += interact.TryInteract;
     }
 
     private void OnDisable()
     {
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
+
+        controls.Player.Interact.performed -= interact.TryInteract;
     }
 
     private void MoveInput(InputAction.CallbackContext ctx)

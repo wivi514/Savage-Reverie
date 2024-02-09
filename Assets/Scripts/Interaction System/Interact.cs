@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Interact : MonoBehaviour
     }
 
     //Fonction qui permet d'intéragir avec les objets qui ont le script InteractableObject attach?sur eux
-    public void TryInteract()
+    public void TryInteract(InputAction.CallbackContext ctx)
     {
         // Envoie un raycast au centre de l'écran pour voir si il y ?un objet
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));

@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Interactable : MonoBehaviour
 {
     //Variables
     [SerializeField] GameObject interactable; // À utiliser pour les portes c'est surtout au cas ou l'on ouvre les portes avec un bouton
+    private Inventory inventory;
+
+    public void Awake()
+    {
+        inventory = this.gameObject.GetComponent<Inventory>();
+    }
 
     public void Interact()
     {
@@ -39,7 +46,24 @@ public class Interactable : MonoBehaviour
             //Regarde si l'objet à un tag Object
             if (this.gameObject.CompareTag("Object"))
             {
-                Destroy(this.gameObject);
+                Inventory inventory = FindObjectOfType<Inventory>(); // Find the Inventory script
+                if (inventory != null)
+                {
+                    PickableObject item = interactable.GetComponent<PickableObject>(); // Assuming item scripts are attached to objects
+                    if (item != null)
+                    {
+                        inventory.AddItem(item); // Add the item to the inventory
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Item component not found on interactable object.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("No Inventory component found in the scene.");
+                }
+                Destroy(interactable); // Destroy the interactable object
             }
             #endregion
         }
