@@ -6,29 +6,13 @@ using UnityEngine.InputSystem;
 
 public class InventorySystem : MonoBehaviour
 {
-    public Canvas inventoryPanel;
-    //private InputAction toggleInventoryAction;
-
-    //private void Start()
-    //{
-    //    var playerControls = GetComponent<PlayerControls>(); // Obtient une référence au script des contrôles du joueur
-
-    //    if (playerControls != null)
-    //    {
-    //        // Initialise toggleInventoryAction en utilisant le système d'actions d'entrée
-    //        toggleInventoryAction = playerControls.Player.Inventory;
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("PlayerControls script not found on the GameObject");
-    //    }
-    //}
-
+    public  GameObject inventoryUI;
+    
     public void ToggleInventory()
     {
-        if (inventoryPanel != null)
+        if (inventoryUI != null)
         {
-            inventoryPanel.enabled = !inventoryPanel.enabled;
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
         else
         {
