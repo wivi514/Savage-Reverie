@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        inventorySystem = GetComponent<InventorySystem>();
+        inventorySystem = FindAnyObjectByType<InventorySystem>();
         pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         // Enable the New Input System from unity
@@ -31,7 +31,15 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
 
-        controls.Player.Inventory.performed += ctx => inventorySystem.ToggleInventory();
+        Debug.Log($"Inventory System is null: {inventorySystem == null}");
+        if (inventorySystem != null)
+        {
+            controls.Player.Inventory.performed += ctx => inventorySystem.ToggleInventory();
+        }
+        else
+        {
+            Debug.LogError("InventorySystem is not assigned in InputManager.");
+        }
 
     }
 
