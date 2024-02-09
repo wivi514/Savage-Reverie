@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,6 +33,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
         controls.Player.Jump.performed += JumpInput;
+        controls.Player.Jump.performed += CrouchInput;
 
         controls.Player.Interact.performed += interact.TryInteract;
     }
@@ -41,6 +43,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
         controls.Player.Jump.performed -= JumpInput;
+        controls.Player.Jump.performed -= CrouchInput;
 
         controls.Player.Interact.performed -= interact.TryInteract;
     }
@@ -59,6 +62,11 @@ public class InputManager : MonoBehaviour
     }
 
     private void JumpInput(InputAction.CallbackContext ctx)
+    {
+
+    }
+
+    private void CrouchInput(InputAction.CallbackContext ctx)
     {
 
     }
