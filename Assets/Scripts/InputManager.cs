@@ -33,9 +33,8 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
         controls.Player.Jump.performed += JumpInput;
-        controls.Player.Jump.performed += CrouchInput;
 
-        controls.Player.Interact.performed += interact.TryInteract;
+        controls.Player.Interact.performed += InteractInput;
     }
 
     private void OnDisable()
@@ -43,9 +42,8 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
         controls.Player.Jump.performed -= JumpInput;
-        controls.Player.Jump.performed -= CrouchInput;
 
-        controls.Player.Interact.performed -= interact.TryInteract;
+        controls.Player.Interact.performed -= InteractInput;
     }
 
     private void MoveInput(InputAction.CallbackContext ctx)
@@ -63,11 +61,11 @@ public class InputManager : MonoBehaviour
 
     private void JumpInput(InputAction.CallbackContext ctx)
     {
-
+        playerMovement.Jump();
     }
 
-    private void CrouchInput(InputAction.CallbackContext ctx)
+    private void InteractInput(InputAction.CallbackContext ctx)
     {
-
+        interact.TryInteract();
     }
 }

@@ -25,7 +25,7 @@ public class Interact : MonoBehaviour
     }
 
     //Fonction qui permet d'intéragir avec les objets qui ont le script InteractableObject attach?sur eux
-    public void TryInteract(InputAction.CallbackContext ctx)
+    public void TryInteract()
     {
         // Envoie un raycast au centre de l'écran pour voir si il y ?un objet
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
