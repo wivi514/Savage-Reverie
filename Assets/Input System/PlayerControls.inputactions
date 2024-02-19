@@ -24,6 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
+<<<<<<< Updated upstream
                     "name": "Interact",
                     "type": "Button",
                     "id": "c362c5f5-b06c-4bf0-9d24-418e26fbc6cb",
@@ -36,6 +37,11 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "d4443358-a818-4dab-a0d9-30ac9cc8a372",
+=======
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "c1b4d440-68a1-48ec-b105-f6cc69f91161",
+>>>>>>> Stashed changes
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -111,6 +117,7 @@
                 },
                 {
                     "name": "",
+<<<<<<< Updated upstream
                     "id": "75b80db4-1311-4974-bb43-3620ea09f5c2",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -145,6 +152,9 @@
                 {
                     "name": "",
                     "id": "b38086db-614f-4eec-b815-67549cbdea81",
+=======
+                    "id": "0196912a-1619-490b-ac3d-9224da225745",
+>>>>>>> Stashed changes
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
