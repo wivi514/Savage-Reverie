@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class InputManager : MonoBehaviour
 {
     PlayerControls controls;
     Interact interact;
+    PlayerMovement playerMovement;
 
     // Définissez la touche de saut
     private string jumpKey = "Jump";
@@ -18,6 +20,8 @@ public class InputManager : MonoBehaviour
         controls = new PlayerControls();
 
         interact = GameObject.Find("Player").GetComponent<Interact>();
+
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         // Enable the New Input System from unity
         controls.Player.Enable();
@@ -31,16 +35,18 @@ public class InputManager : MonoBehaviour
     {
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
+        controls.Player.Jump.performed += JumpInput;
 
-        controls.Player.Interact.performed += interact.TryInteract;
+        controls.Player.Interact.performed += InteractInput;
     }
 
     private void OnDisable()
     {
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
+        controls.Player.Jump.performed -= JumpInput;
 
-        controls.Player.Interact.performed -= interact.TryInteract;
+        controls.Player.Interact.performed -= InteractInput;
     }
 
     private void MoveInput(InputAction.CallbackContext ctx)
@@ -56,6 +62,7 @@ public class InputManager : MonoBehaviour
         movementInput = Vector2.zero;
     }
 
+<<<<<<< HEAD
     private void Update()
     {
         // Appel de la fonction de saut
@@ -69,5 +76,15 @@ public class InputManager : MonoBehaviour
         {
             pm.Jump();
         }
+=======
+    private void JumpInput(InputAction.CallbackContext ctx)
+    {
+        playerMovement.Jump();
+    }
+
+    private void InteractInput(InputAction.CallbackContext ctx)
+    {
+        interact.TryInteract();
+>>>>>>> 9c7fbdd5ba4495fcbeec6530f37ea97d18e8a9d8
     }
 }
