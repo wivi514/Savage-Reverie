@@ -8,6 +8,9 @@ public class InputManager : MonoBehaviour
     PlayerControls controls;
     Interact interact;
 
+    // Définissez la touche de saut
+    private string jumpKey = "Jump";
+
     public static Vector2 movementInput;
 
     private void Awake()
@@ -51,5 +54,20 @@ public class InputManager : MonoBehaviour
     {
         // When movement is canceled, set the movement input to zero to stop the player
         movementInput = Vector2.zero;
+    }
+
+    private void Update()
+    {
+        // Appel de la fonction de saut
+        Jump();
+    }
+
+    private void Jump()
+    {
+        // Vérifie si le joueur appuie sur la touche de saut et s'il est au sol
+        if (Input.GetKeyDown(jumpKey) && pm.isGrounded)
+        {
+            pm.Jump();
+        }
     }
 }
