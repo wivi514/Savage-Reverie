@@ -3,7 +3,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float speed = 10f;
+<<<<<<< HEAD
     private float jumpForce = 5f; // Ajustez la force du saut selon vos besoins
+=======
+    private float jumpForce = 250f;
+>>>>>>> 9c7fbdd5ba4495fcbeec6530f37ea97d18e8a9d8
     public bool isGrounded = false;
     private byte raycastJump = 1;
     private float speedJumpModifier = 0.5f; // Speed multiplier when player jumps
@@ -57,8 +61,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Apply a vertical force to simulate jumping
+=======
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(new Vector3(0, jumpForce));
+            Debug.Log("Is Jumping");
+        }
+>>>>>>> 9c7fbdd5ba4495fcbeec6530f37ea97d18e8a9d8
     }
 }
