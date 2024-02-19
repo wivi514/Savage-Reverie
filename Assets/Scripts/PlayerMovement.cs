@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private float speed = 10f;
-    private float jumpForce = 1;
+    private float jumpForce = 5f; // Ajustez la force du saut selon vos besoins
     public bool isGrounded = false;
     private byte raycastJump = 1;
     private float speedJumpModifier = 0.5f; // Speed multiplier when player jumps
@@ -33,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Move(InputManager.movementInput); // Call the movement function in FixedUpdate
+
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) // Check if the player is grounded and the spacebar is pressed
+        {
+            Jump(); // Call the jump function
+        }
     }
 
     public void Move(Vector2 moveInput)
@@ -52,5 +55,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(moveDirection.x * speed * speedJumpModifier, rb.velocity.y, moveDirection.z * speed * speedJumpModifier);
         }
+    }
+
+    void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Apply a vertical force to simulate jumping
     }
 }
