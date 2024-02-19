@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2022.3/staging' branch; Version is '2022.3.17f1 (4fc78088f837) revision 5228416'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 16068 MB
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'fr' Physical Memory: 16051 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Unity.exe
 -name
 AssetImportWorker1
 -projectPath
-D:/Unity Project/Savage-Reverie
+C:/Users/moham/OneDrive/Documents/GitHub/Savage-Reverie
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
+<<<<<<< Updated upstream
 49779
 Successfully changed project path to: D:/Unity Project/Savage-Reverie
 D:/Unity Project/Savage-Reverie
+=======
+65089
+Successfully changed project path to: C:/Users/moham/OneDrive/Documents/GitHub/Savage-Reverie
+C:/Users/moham/OneDrive/Documents/GitHub/Savage-Reverie
+>>>>>>> Stashed changes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,30 +55,40 @@ D:/Unity Project/Savage-Reverie
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
 Player connection [160412] Host "[IP] 192.168.0.152 [Port] 0 [Flags] 2 [Guid] 1609187103 [EditorId] 1609187103 [Version] 1048832 [Id] WindowsEditor(7,Alienware-William-R7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [160412] Host "[IP] 192.168.0.152 [Port] 0 [Flags] 2 [Guid] 1609187103 [EditorId] 1609187103 [Version] 1048832 [Id] WindowsEditor(7,Alienware-William-R7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 19 workers.
 Refreshing native plugins compatible for Editor in 29.29 ms, found 3 plugins.
+=======
+Player connection [32148] Host "[IP] 169.254.175.46 [Port] 0 [Flags] 2 [Guid] 184550329 [EditorId] 184550329 [Version] 1048832 [Id] WindowsEditor(7,PC-de-Moh) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [32148] Host "[IP] 169.254.175.46 [Port] 0 [Flags] 2 [Guid] 184550329 [EditorId] 184550329 [Version] 1048832 [Id] WindowsEditor(7,PC-de-Moh) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 19 workers.
+Refreshing native plugins compatible for Editor in 131.15 ms, found 3 plugins.
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.17f1 (4fc78088f837)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/Unity Project/Savage-Reverie/Assets
+[Subsystems] Discovering subsystems at path C:/Users/moham/OneDrive/Documents/GitHub/Savage-Reverie/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 d3d12: loaded!
 Direct3D:
     Version:         Direct3D 12 [level 12.1]
-    Renderer:        NVIDIA GeForce RTX 3070 Ti Laptop GPU (ID=0x24e0)
+    Renderer:        NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
     Vendor:          NVIDIA
-    VRAM:            8018 MB
-    App VRAM Budget: 7250 MB
-    Driver:          31.0.15.5123
+    VRAM:            6010 MB
+    App VRAM Budget: 5242 MB
+    Driver:          31.0.15.4626
 d3d12: Profiler is enabled, but stable power state is not. GPU timing errors are expected.
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56400
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -86,11 +102,25 @@ Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.217 seconds
 Domain Reload Profiling: 524ms
 	BeginReloadAssembly (114ms)
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56508
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.022493 seconds.
+- Loaded All Assemblies, in  0.919 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.758 seconds
+Domain Reload Profiling: 1671ms
+	BeginReloadAssembly (411ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
 	RebuildCommonClasses (29ms)
 	RebuildNativeTypeToScriptingClass (8ms)
 	initialDomainReloadingComplete (47ms)
@@ -113,6 +143,30 @@ Domain Reload Profiling: 524ms
 			BeforeProcessingInitializeOnLoad (2ms)
 			ProcessInitializeOnLoadAttributes (109ms)
 			ProcessInitializeOnLoadMethodAttributes (50ms)
+=======
+	RebuildCommonClasses (87ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (135ms)
+	LoadAllAssembliesAndSetupDomain (262ms)
+		LoadAssemblies (404ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (259ms)
+			TypeCache.Refresh (256ms)
+				TypeCache.ScanAssembly (229ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (759ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (602ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			SetLoadedEditorAssemblies (21ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (8ms)
+			ProcessInitializeOnLoadAttributes (428ms)
+			ProcessInitializeOnLoadMethodAttributes (117ms)
+>>>>>>> Stashed changes
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -120,23 +174,37 @@ Domain Reload Profiling: 524ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
+<<<<<<< Updated upstream
 - Loaded All Assemblies, in  0.718 seconds
 Refreshing native plugins compatible for Editor in 1.63 ms, found 3 plugins.
 Native extension for UWP target not found
+=======
+- Loaded All Assemblies, in  3.863 seconds
+Refreshing native plugins compatible for Editor in 27.44 ms, found 3 plugins.
+>>>>>>> Stashed changes
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
+<<<<<<< Updated upstream
 d3d12: upload buffer was full! Waited for COPY queue for 3.098 ms.
 Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  2.375 seconds
 Domain Reload Profiling: 3091ms
 	BeginReloadAssembly (139ms)
+=======
+d3d12: upload buffer was full! Waited for COPY queue for 38.072 ms.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.805 seconds
+Domain Reload Profiling: 7650ms
+	BeginReloadAssembly (355ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 		CreateAndSetChildDomain (17ms)
 	RebuildCommonClasses (31ms)
 	RebuildNativeTypeToScriptingClass (10ms)
@@ -171,6 +239,42 @@ Unloading 6810 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 119 unused Assets / (3.7 MB). Loaded Objects now: 7275.
 Memory consumption went from 316.2 MB to 312.5 MB.
 Total: 4.732700 ms (FindLiveObjects: 0.349700 ms CreateObjectMapping: 0.306700 ms MarkObjects: 3.358100 ms  DeleteObjects: 0.717300 ms)
+=======
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (85ms)
+	RebuildNativeTypeToScriptingClass (37ms)
+	initialDomainReloadingComplete (134ms)
+	LoadAllAssembliesAndSetupDomain (3233ms)
+		LoadAssemblies (2504ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (967ms)
+			TypeCache.Refresh (833ms)
+				TypeCache.ScanAssembly (765ms)
+			ScanForSourceGeneratedMonoScriptInfo (84ms)
+			ResolveRequiredComponents (46ms)
+	FinalizeReload (3806ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (3292ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			SetLoadedEditorAssemblies (16ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (415ms)
+			ProcessInitializeOnLoadAttributes (1733ms)
+			ProcessInitializeOnLoadMethodAttributes (1077ms)
+			AfterProcessingInitializeOnLoad (23ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (16ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.34 seconds
+Refreshing native plugins compatible for Editor in 36.51 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6805 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 119 unused Assets / (3.6 MB). Loaded Objects now: 7269.
+Memory consumption went from 319.9 MB to 316.3 MB.
+Total: 11.465200 ms (FindLiveObjects: 0.783900 ms CreateObjectMapping: 0.642000 ms MarkObjects: 8.655000 ms  DeleteObjects: 1.380700 ms)
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -181,6 +285,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< Updated upstream
   custom:scripting/precompiled-assembly-types:Assembly-CSharp: 64e4939618ea95b24989530171aab17a -> 9c9f25dcccad8438acf034f3673faa2c
   custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -250,6 +355,8 @@ AssetImportParameters requested are different than current active one (requested
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+>>>>>>> Stashed changes
   custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
@@ -257,6 +364,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 584163.797436 seconds.
   path: Assets/Scripts/Scriptable Object/CharacterSheet.cs
   artifactKey: Guid(4d6a677cd3fd8924292615ef7fa29866) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -268,3 +376,189 @@ Received Prepare
 Begin MonoManager ReloadAssembly
 - Loaded All Assemblies, in  0.520 seconds
 Refreshing native plugins compatible for Editor in 1.73 ms, found 3 plugins.
+=======
+  Time since last request: 1148984.550648 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Prefabs/Text Popup.prefab
+  artifactKey: Guid(b06f0e6c1dfa4356ac918da1bb32c603) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Prefabs/Text Popup.prefab using Guid(b06f0e6c1dfa4356ac918da1bb32c603) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81dfd1b65b81e67f469faa8ce38ddd15') in 0.184994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 21
+========================================================================
+Received Import Request.
+  Time since last request: 0.000364 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Roboto-Bold.ttf
+  artifactKey: Guid(4beb055f07aaff244873dec698d0363e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Roboto-Bold.ttf using Guid(4beb055f07aaff244873dec698d0363e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) d3d12: upload buffer was full! Waited for COPY queue for 8.329 ms.
+d3d12: upload buffer was full! Waited for COPY queue for 4.347 ms.
+d3d12: upload buffer was full! Waited for COPY queue for 4.552 ms.
+d3d12: upload buffer was full! Waited for COPY queue for 8.621 ms.
+d3d12: upload buffer was full! Waited for COPY queue for 5.985 ms.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.50 seconds
+ -> (artifact id: '6afc83b8c11bb492dbcb3a4bfc9c7a07') in 38.991135 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 36
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Packages/com.unity.render-pipelines.high-definition/Editor/RenderPipelineResources/Material/GUITextureBlit2SRGB.mat
+  artifactKey: Guid(6e95c04e4e686554e8bed96ee69f690c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.high-definition/Editor/RenderPipelineResources/Material/GUITextureBlit2SRGB.mat using Guid(6e95c04e4e686554e8bed96ee69f690c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd74086cf159b5b4bd0c0d616a60e6ca') in 0.063591 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001568 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIProgressBar.prefab
+  artifactKey: Guid(d3770aaa3bbd8384aabab9ddd383e21e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIProgressBar.prefab using Guid(d3770aaa3bbd8384aabab9ddd383e21e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '175f1bfa6bc5dbb034ae7b3a7fdb3f24') in 0.037073 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000573 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIFloatField.prefab
+  artifactKey: Guid(d8c744701b43c864b88e7f8144e19bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIFloatField.prefab using Guid(d8c744701b43c864b88e7f8144e19bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e12214cfb2015be9cd7bfde4d3607465') in 0.019796 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 37
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
+  artifactKey: Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset using Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95a9bbd09cc5e66a9c2c2f2e300492bc') in 0.115328 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Materials/Blue.mat
+  artifactKey: Guid(1d01e003ccf345f4996f91dcf1338805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue.mat using Guid(1d01e003ccf345f4996f91dcf1338805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b629ef0bffd95c20f61d296650d3b3f5') in 0.538153 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat
+  artifactKey: Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat using Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '390f3cb17061009314a1f63f88f8b90a') in 0.221825 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/Material/DefaultHDMirrorMaterial.mat
+  artifactKey: Guid(6b17274157b33bc45b6a40e7d4ff51fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/Material/DefaultHDMirrorMaterial.mat using Guid(6b17274157b33bc45b6a40e7d4ff51fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f3b33f8fb965fa49b8cdbaa0e5cd113') in 0.036499 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/Material/DefaultHDMaterial.mat
+  artifactKey: Guid(73c176f402d2c2f4d929aa5da7585d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/Material/DefaultHDMaterial.mat using Guid(73c176f402d2c2f4d929aa5da7585d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f9dbbd334bfeccd622951082ce0dccb') in 0.048734 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset
+  artifactKey: Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset using Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eabbf49ec1d5fbb2babd430839c08ff6') in 0.078097 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIValuePersistent.prefab
+  artifactKey: Guid(8778e6b26b51c6a4999b94d7cacd8b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIValuePersistent.prefab using Guid(8778e6b26b51c6a4999b94d7cacd8b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbd024564701e867bd80eb81d560002c') in 0.009156 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIVector3.prefab
+  artifactKey: Guid(94afea5f242d72547979595ba963f335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIVector3.prefab using Guid(94afea5f242d72547979595ba963f335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0de3b74004e2e361caf3620395543fe9') in 0.018042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 67
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BlackItalic.ttf
+  artifactKey: Guid(f95147a9bab9fe649b8070170fa7ebd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BlackItalic.ttf using Guid(f95147a9bab9fe649b8070170fa7ebd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2c4aaa72a29f81ebc84ad4a303b1a69') in 0.072024 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIObjectList.prefab
+  artifactKey: Guid(ad83bc56407925d44a77a5bd01cd6783) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIObjectList.prefab using Guid(ad83bc56407925d44a77a5bd01cd6783) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed8b98dd131fbc969d5bb531e4a6ff4a') in 0.008874 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 27
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/ShaderGraph/Eye.shadergraph
+  artifactKey: Guid(bcebc9ce27c38914ab465c3189313b56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/ShaderGraph/Eye.shadergraph using Guid(bcebc9ce27c38914ab465c3189313b56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e7af54c6cb3d2c7fbc5e35f77b77039') in 12.264907 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000469 seconds.
+  path: Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/ShaderGraph/Hair.shadergraph
+  artifactKey: Guid(384d88ff5b296a44b89f1fb2d4442c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipelineResources/ShaderGraph/Hair.shadergraph using Guid(384d88ff5b296a44b89f1fb2d4442c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e80b2fcba381de8e3d7c9883f96a2c2b') in 18.761333 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.422 seconds
+Refreshing native plugins compatible for Editor in 16.58 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  8.722 seconds
+Domain Reload Profiling: 12132ms
+	BeginReloadAssembly (1062ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (170ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (341ms)
+	RebuildCommonClasses (67ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (93ms)
+	LoadAllAssembliesAndSetupDomain (2164ms)
+		LoadAssemblies (2466ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (55ms)
+			TypeCache.Refresh (24ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (28ms)
+	FinalizeReload (8723ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1654ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (13ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (305ms)
+			ProcessInitializeOnLoadAttributes (1231ms)
+			ProcessInitializeOnLoadMethodAttributes (57ms)
+			AfterProcessingInitializeOnLoad (22ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (110ms)
+>>>>>>> Stashed changes
