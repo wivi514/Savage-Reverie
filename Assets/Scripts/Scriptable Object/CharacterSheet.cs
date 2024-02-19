@@ -30,12 +30,15 @@ public class CharacterSheet : ScriptableObject
 }
 public enum Faction
 {
-    
+    Bandits,
+    Law
 }
 
 public enum CharacterType
 {
-    
+    Human,
+    Creature,
+    Animal
 }
 
 public enum Sex
