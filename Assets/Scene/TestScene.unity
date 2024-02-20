@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2258.8987, g: 2399.965, b: 3496.7231, a: 1}
+  m_IndirectSpecularColor: {r: 2259.9163, g: 2400.2073, b: 3496.2153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2574,7 +2574,7 @@ GameObject:
   - component: {fileID: 1671101833}
   - component: {fileID: 1671101832}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: FPS Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

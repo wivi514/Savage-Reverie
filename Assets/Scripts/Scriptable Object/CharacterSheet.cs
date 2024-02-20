@@ -10,6 +10,7 @@ public class CharacterSheet : ScriptableObject
     public CharacterType type;
     public Sex sex;
     public Skill[] skills;
+    public int healthPoint;
 
     void OnEnable()
     {

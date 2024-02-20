@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     PlayerMovement playerMovement;
 
     public static Vector2 movementInput;
+    public static bool isSprinting;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
         controls.Player.Jump.performed += JumpInput;
+        controls.Player.Sprint.performed += SprintInput;
 
         controls.Player.Interact.performed += InteractInput;
     }
@@ -42,6 +44,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
         controls.Player.Jump.performed -= JumpInput;
+        controls.Player.Sprint.performed -= SprintInput;
 
         controls.Player.Interact.performed -= InteractInput;
     }
@@ -67,5 +70,10 @@ public class InputManager : MonoBehaviour
     private void InteractInput(InputAction.CallbackContext ctx)
     {
         interact.TryInteract();
+    }
+
+    private void SprintInput(InputAction.CallbackContext ctx)
+    {
+        isSprinting = ctx.ReadValueAsButton(); // Check if sprint button is pressed
     }
 }
