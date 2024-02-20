@@ -46,6 +46,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+<<<<<<< Updated upstream
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""c362c5f5-b06c-4bf0-9d24-418e26fbc6cb"",
@@ -58,6 +59,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""d4443358-a818-4dab-a0d9-30ac9cc8a372"",
+=======
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1b4d440-68a1-48ec-b105-f6cc69f91161"",
+>>>>>>> Stashed changes
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -151,6 +157,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+<<<<<<< HEAD
                     ""id"": ""72cf6184-23f6-47a5-ad93-00d21b692202"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -162,6 +169,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+=======
+<<<<<<< Updated upstream
+>>>>>>> 79fe966ef40b5929ee5d7d05a71c040532056fd5
                     ""id"": ""75b80db4-1311-4974-bb43-3620ea09f5c2"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -196,6 +206,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b38086db-614f-4eec-b815-67549cbdea81"",
+=======
+                    ""id"": ""0196912a-1619-490b-ac3d-9224da225745"",
+>>>>>>> Stashed changes
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -257,7 +270,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+<<<<<<< Updated upstream
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+=======
+>>>>>>> Stashed changes
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
@@ -324,7 +340,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Movement;
+<<<<<<< Updated upstream
     private readonly InputAction m_Player_Interact;
+=======
+>>>>>>> Stashed changes
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Sprint;
@@ -334,7 +353,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+<<<<<<< Updated upstream
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+=======
+>>>>>>> Stashed changes
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
@@ -353,9 +375,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+<<<<<<< Updated upstream
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+=======
+>>>>>>> Stashed changes
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -375,9 +400,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+<<<<<<< Updated upstream
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+=======
+>>>>>>> Stashed changes
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -408,7 +436,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnLook(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+<<<<<<< Updated upstream
         void OnInteract(InputAction.CallbackContext context);
+=======
+>>>>>>> Stashed changes
         void OnJump(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);

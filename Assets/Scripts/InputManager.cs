@@ -10,6 +10,9 @@ public class InputManager : MonoBehaviour
     Interact interact;
     PlayerMovement playerMovement;
 
+    // Définissez la touche de saut
+    private string jumpKey = "Jump";
+
     public static Vector2 movementInput;
     public static bool isSprinting;
 
@@ -62,6 +65,21 @@ public class InputManager : MonoBehaviour
         movementInput = Vector2.zero;
     }
 
+<<<<<<< HEAD
+    private void Update()
+    {
+        // Appel de la fonction de saut
+        Jump();
+    }
+
+    private void Jump()
+    {
+        // Vérifie si le joueur appuie sur la touche de saut et s'il est au sol
+        if (Input.GetKeyDown(jumpKey) && pm.isGrounded)
+        {
+            pm.Jump();
+        }
+=======
     private void JumpInput(InputAction.CallbackContext ctx)
     {
         playerMovement.Jump();
@@ -70,6 +88,7 @@ public class InputManager : MonoBehaviour
     private void InteractInput(InputAction.CallbackContext ctx)
     {
         interact.TryInteract();
+>>>>>>> 9c7fbdd5ba4495fcbeec6530f37ea97d18e8a9d8
     }
 
     private void SprintInput(InputAction.CallbackContext ctx)
