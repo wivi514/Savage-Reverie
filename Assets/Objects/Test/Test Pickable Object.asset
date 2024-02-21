@@ -15,5 +15,7 @@ MonoBehaviour:
   objectName: Test Pickable Object
   description: Test
   type: 2
+  uiArtwork: {fileID: 0}
   weight: 1
   value: 0
+  canStack: 0

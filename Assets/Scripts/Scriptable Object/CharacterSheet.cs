@@ -6,15 +6,15 @@ using UnityEngine;
 public class CharacterSheet : ScriptableObject
 {
     public string characterName;
+    public int healthPoint;
     public Faction faction;
     public CharacterType type;
     public Sex sex;
     public Skill[] skills;
-    public int healthPoint;
 
     void OnEnable()
     {
-        // Assign default skills
+        // Assign default skills and their sub-skills
         skills = new Skill[]
         {
             new Skill { skillName = "Explosives", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Throw" } } },
@@ -29,12 +29,16 @@ public class CharacterSheet : ScriptableObject
         };
     }
 }
+
+//Here are all the faction the player or npc can be. Add more if needed
 public enum Faction
 {
+    Player,
     Bandits,
     Law
 }
 
+//Here are all the character type npc can be, for the player it always need to be set as Human. Add more if needed.
 public enum CharacterType
 {
     Human,
@@ -42,6 +46,7 @@ public enum CharacterType
     Animal
 }
 
+//Here are all the gender the player or npc can be. Add more if needed.
 public enum Sex
 {
     Male,
