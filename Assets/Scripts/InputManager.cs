@@ -49,6 +49,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Interact.performed -= InteractInput;
     }
 
+    //Get the Input from the movement key
     private void MoveInput(InputAction.CallbackContext ctx)
     {
         // Grab the input and set it as a vector2 variable
@@ -56,23 +57,28 @@ public class InputManager : MonoBehaviour
         Debug.Log(movementInput);
     }
 
+    //Get when you stop pressing the movement key
     private void StopMove(InputAction.CallbackContext ctx)
     {
         // When movement is canceled, set the movement input to zero to stop the player
         movementInput = Vector2.zero;
     }
+
+    // Make the player jump when pressing the jump input
     private void JumpInput(InputAction.CallbackContext ctx)
     {
         playerMovement.Jump();
     }
 
+    //Interact with object when pressing the interact input
     private void InteractInput(InputAction.CallbackContext ctx)
     {
         interact.TryInteract();
     }
 
+    //Make the player sprint when pressing the sprint input
     private void SprintInput(InputAction.CallbackContext ctx)
     {
-        isSprinting = ctx.ReadValueAsButton(); // Check if sprint button is pressed
+        isSprinting = ctx.ReadValueAsButton();
     }
 }

@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
         }
-
         Move(InputManager.movementInput, InputManager.isSprinting); // Call the movement function in FixedUpdate
     }
 
