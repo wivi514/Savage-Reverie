@@ -34,6 +34,9 @@ public class Interactable : MonoBehaviour
         // Check if the object has a Object tag
         if (gameObject.CompareTag("Object"))
         {
+            Inventory playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+            SceneObjectInformation sceneObjectInformation = gameObject.GetComponent<SceneObjectInformation>();
+            playerInventory.AddItem(sceneObjectInformation.scriptableObject);
             Destroy(gameObject); // Destroy the interactable object from the scene once it's picked up
         }
         #endregion
