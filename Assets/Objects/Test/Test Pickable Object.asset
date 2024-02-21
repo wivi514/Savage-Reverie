@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Test Pickable Object
   description: Test
-  type: 2
-  uiArtwork: {fileID: 0}
+  type: 3
+  uiArtwork: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   weight: 1
-  value: 0
-  canStack: 0
+  value: 1
+  canStack: 1

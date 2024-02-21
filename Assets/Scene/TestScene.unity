@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2259.9163, g: 2400.2073, b: 3496.2153, a: 1}
+  m_IndirectSpecularColor: {r: 2257.7307, g: 2399.0178, b: 3495.7075, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1837,7 +1837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1004107414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2596,8 +2596,8 @@ GameObject:
   - component: {fileID: 1346936734}
   - component: {fileID: 1346936733}
   - component: {fileID: 1346936732}
-  - component: {fileID: 1346936731}
   - component: {fileID: 1346936737}
+  - component: {fileID: 1346936738}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Object
@@ -2605,18 +2605,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1346936731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346936730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44e84fcf452c78b4c8f48a6f657ebd6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1346936732
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2742,7 +2730,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd256f5873f28c418bfb2b1c24fde8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 0}
+--- !u!114 &1346936738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346936730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5c2febf82665445a313fc6ec2ba978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableObject: {fileID: 11400000, guid: b9fb2ce2b16c2884e8e2cc3d94fed839, type: 2}
+  objectName: {fileID: 0}
+  description: {fileID: 0}
+  uiArtwork: {fileID: 0}
+  weight: {fileID: 0}
+  value: {fileID: 0}
 --- !u!1 &1618727010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,7 +2766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1618727011
 MonoBehaviour:
   m_ObjectHideFlags: 0
