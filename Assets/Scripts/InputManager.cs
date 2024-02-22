@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -9,6 +10,7 @@ public class InputManager : MonoBehaviour
     PlayerControls controls;
     Interact interact;
     PlayerMovement playerMovement;
+    PlayerMenu playerMenu;
 
     public static Vector2 movementInput;
     public static bool isSprinting;
@@ -20,6 +22,8 @@ public class InputManager : MonoBehaviour
         interact = GameObject.Find("Player").GetComponent<Interact>();
 
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+        playerMenu = GameObject.Find("Player Menu UI").GetComponent<PlayerMenu>();
 
         // Enable the New Input System from unity
         controls.Player.Enable();
@@ -37,6 +41,8 @@ public class InputManager : MonoBehaviour
         controls.Player.Sprint.performed += SprintInput;
 
         controls.Player.Interact.performed += InteractInput;
+
+        controls.Player.Menu.performed += MenuInput;
     }
 
     private void OnDisable()
@@ -47,6 +53,8 @@ public class InputManager : MonoBehaviour
         controls.Player.Sprint.performed -= SprintInput;
 
         controls.Player.Interact.performed -= InteractInput;
+
+        controls.Player.Menu.performed -= MenuInput;
     }
 
     //Get the Input from the movement key
@@ -80,5 +88,10 @@ public class InputManager : MonoBehaviour
     private void SprintInput(InputAction.CallbackContext ctx)
     {
         isSprinting = ctx.ReadValueAsButton();
+    }
+
+    private void MenuInput(InputAction.CallbackContext context)
+    {
+        playerMenu.ToggleMenu();
     }
 }

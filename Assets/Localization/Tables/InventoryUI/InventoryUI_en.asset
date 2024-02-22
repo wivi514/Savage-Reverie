@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: InventoryUI_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: fb8d8636c66cf3846ad25b52ba28f9ec, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 98013166657077251
+  m_TableData:
+  - m_Id: 34557153280
+    m_Localized: 'Money: {}'
+    m_Metadata:
+      m_Items:
+      - rid: 98013166657077251
+  - m_Id: 53116948480
+    m_Localized: 'Weight: {}/'
+    m_Metadata:
+      m_Items:
+      - rid: 98013166657077251
+  references:
+    version: 2
+    RefIds:
+    - rid: 98013166657077251
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0050c40b080000000050045e0c000000
