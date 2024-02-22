@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6a677cd3fd8924292615ef7fa29866, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Bob
   level: 1
   healthPoint: 100
   weightLimit: 100
