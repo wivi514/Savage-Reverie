@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6a677cd3fd8924292615ef7fa29866, type: 3}
+  m_Name: TestNPC
+  m_EditorClassIdentifier: 
+  characterName: 
+  level: 5
+  healthPoint: 100
+  weightLimit: 100
+  actualWeight: 0
+  money: 0
+  faction: 1
+  type: 0
+  sex: 0
+  skills:
+  - skillName: Explosives
+    skillLevel: 15
+    subSkills:
+    - subSkillName: Throw
+      subSkillLevel: 15
+  - skillName: Guns
+    skillLevel: 15
+    subSkills:
+    - subSkillName: Revolver
+      subSkillLevel: 15
+    - subSkillName: Rifle
+      subSkillLevel: 15
+  - skillName: Sneak
+    skillLevel: 15
+    subSkills:
+    - subSkillName: Crouch
+      subSkillLevel: 15
+    - subSkillName: Lockpicking
+      subSkillLevel: 15
+  - skillName: Medicine
+    skillLevel: 15
+    subSkills: []
+  - skillName: Repair
+    skillLevel: 15
+    subSkills: []
+  - skillName: Science
+    skillLevel: 15
+    subSkills: []
+  - skillName: Speech
+    skillLevel: 15
+    subSkills:
+    - subSkillName: Barter
+      subSkillLevel: 15
+  - skillName: Survival
+    skillLevel: 15
+    subSkills:
+    - subSkillName: Acrobatics
+      subSkillLevel: 15
+    - subSkillName: Athletics
+      subSkillLevel: 15
+  - skillName: Melee Weapons
+    skillLevel: 15
+    subSkills:
+    - subSkillName: Blunt
+      subSkillLevel: 15
+    - subSkillName: Blade
+      subSkillLevel: 15
+    - subSkillName: Unarmed
+      subSkillLevel: 15
