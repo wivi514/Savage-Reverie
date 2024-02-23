@@ -5,14 +5,17 @@ using UnityEngine;
 //Used for everything in the player menu that isn't specific to a player menu tab such as stat, inventory, etc.
 public class PlayerMenu : MonoBehaviour
 {
-    [SerializeField] GameObject pMenuUi;
+    [SerializeField] GameObject playerMenuUi;
+    [SerializeField] GameObject playerUi;
 
     public void ToggleMenu()
     {
-        bool isMenuActive = pMenuUi.activeSelf; // Check if the menu is currently active
+        bool isMenuActive = playerMenuUi.activeSelf; // Check if the menu is currently active
+        bool isGameActive = playerUi.activeSelf; // Check if the game UI is currently active
 
         // Toggle the menu state
-        pMenuUi.SetActive(!isMenuActive);
+        playerMenuUi.SetActive(!isMenuActive);
+        playerUi.SetActive(!isGameActive);
 
         // Adjust time scale and cursor visibility based on the menu state
         if (!isMenuActive)

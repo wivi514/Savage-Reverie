@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2266.597, g: 2413.805, b: 3529.6724, a: 1}
+  m_IndirectSpecularColor: {r: 2259.9163, g: 2400.2073, b: 3496.2153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -340, y: -75}
+  m_AnchoredPosition: {x: -340, y: -110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12336408
@@ -905,7 +905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168dcc36a1a8de44f8c5605fd4c2e532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pMenuUi: {fileID: 1618727010}
+  playerMenuUi: {fileID: 1618727010}
+  playerUi: {fileID: 1004107413}
 --- !u!4 &191292979
 Transform:
   m_ObjectHideFlags: 0
@@ -1653,6 +1654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  characterSheetPlayer: {fileID: 11400000, guid: 5d4531203cccd154bbe776358c73b5eb,
+    type: 2}
 --- !u!1 &535766600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: -75}
+  m_AnchoredPosition: {x: -200, y: -110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &878427170

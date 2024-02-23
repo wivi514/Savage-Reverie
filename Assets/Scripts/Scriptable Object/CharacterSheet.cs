@@ -17,6 +17,38 @@ public class CharacterSheet : ScriptableObject
     public Sex sex;
     public Skill[] skills;
 
+    // Method to get the skill level by name
+    public float GetSkillLevel(string skillName)
+    {
+        foreach (Skill skill in skills)
+        {
+            if (skill.skillName == skillName)
+            {
+                return skill.skillLevel;
+            }
+        }
+        return 0; // Skill not found
+    }
+
+    // Method to get the sub-skill level by skill name and sub-skill name
+    public float GetSubSkillLevel(string skillName, string subSkillName)
+    {
+        foreach (Skill skill in skills)
+        {
+            if (skill.skillName == skillName)
+            {
+                foreach (SubSkill subSkill in skill.subSkills)
+                {
+                    if (subSkill.subSkillName == subSkillName)
+                    {
+                        return subSkill.subSkillLevel;
+                    }
+                }
+            }
+        }
+        return 0; // Sub-skill not found
+    }
+
     void OnEnable()
     {
         if (faction != Faction.Player)
@@ -109,7 +141,7 @@ public enum Sex
 public class Skill
 {
     public string skillName;
-    public int skillLevel;
+    public float skillLevel;
     public SubSkill[] subSkills;
 }
 
@@ -117,5 +149,5 @@ public class Skill
 public class SubSkill
 {
     public string subSkillName;
-    public int subSkillLevel;
+    public float subSkillLevel;
 }

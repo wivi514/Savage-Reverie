@@ -15,12 +15,16 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Camera playerCamera;
 
+    [SerializeField] CharacterSheet characterSheetPlayer;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerCamera = Camera.main;
 
         sprintSpeed = speed * sprintSpeedMultiplier;
+
+        Debug.Log(characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1);
     }
 
     // Update is called once per frame
@@ -51,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
-            rb.velocity = new Vector3(moveDirection.x * currentSpeed, rb.velocity.y, moveDirection.z * currentSpeed);
+            rb.velocity = new Vector3(moveDirection.x * currentSpeed * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics")/100 + 1), rb.velocity.y, moveDirection.z * currentSpeed * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1));
         }
         else
         {
-            rb.velocity = new Vector3(moveDirection.x * currentSpeed * speedJumpModifier, rb.velocity.y, moveDirection.z * currentSpeed * speedJumpModifier);
+            rb.velocity = new Vector3(moveDirection.x * currentSpeed * speedJumpModifier * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1), rb.velocity.y, moveDirection.z * currentSpeed * speedJumpModifier * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1));
         }
     }
     public void Jump()

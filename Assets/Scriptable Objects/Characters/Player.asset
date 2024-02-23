@@ -27,21 +27,21 @@ MonoBehaviour:
     skillLevel: 15
     subSkills:
     - subSkillName: Throw
-      subSkillLevel: 1
+      subSkillLevel: 0
   - skillName: Guns
     skillLevel: 15
     subSkills:
     - subSkillName: Revolver
-      subSkillLevel: 1
+      subSkillLevel: 0
     - subSkillName: Rifle
-      subSkillLevel: 1
+      subSkillLevel: 0
   - skillName: Sneak
     skillLevel: 15
     subSkills:
     - subSkillName: Crouch
-      subSkillLevel: 1
+      subSkillLevel: 0
     - subSkillName: Lockpicking
-      subSkillLevel: 1
+      subSkillLevel: 0
   - skillName: Medicine
     skillLevel: 15
     subSkills: []
@@ -55,20 +55,20 @@ MonoBehaviour:
     skillLevel: 15
     subSkills:
     - subSkillName: Barter
-      subSkillLevel: 1
+      subSkillLevel: 0
   - skillName: Survival
     skillLevel: 15
     subSkills:
     - subSkillName: Acrobatics
-      subSkillLevel: 1
+      subSkillLevel: 0
     - subSkillName: Athletics
-      subSkillLevel: 1
+      subSkillLevel: 0
   - skillName: Melee Weapons
     skillLevel: 15
     subSkills:
     - subSkillName: Blunt
-      subSkillLevel: 1
+      subSkillLevel: 0
     - subSkillName: Blade
-      subSkillLevel: 1
+      subSkillLevel: 0
     - subSkillName: Unarmed
-      subSkillLevel: 1
+      subSkillLevel: 0
