@@ -9,13 +9,16 @@ public class Interact : MonoBehaviour
     //Variables
     public float interactionRange = 3f; // La distance ?laquel le joueur peut intéragir avec un objet
     private TMP_Text interactionText; // Le texte ?l'écran permettant d'afficher si 
+    private TMP_Text gameobjectText;
 
     void Awake()
     {
         // attribue ?la variable interactionText le Text de l'UI pour l'interaction avec des objets.
         interactionText = GameObject.Find("Interaction Text").GetComponent<TMP_Text>();
+        gameobjectText = GameObject.Find("GameObject Text").GetComponent<TMP_Text>();
         //Cache le texte d'interaction lorsque la partie commence 
         interactionText.enabled = false;
+        gameobjectText.enabled = false;
     }
 
     private void Update()
@@ -60,19 +63,23 @@ public class Interact : MonoBehaviour
             // Affiche le texte UI si il y à un objet détect?par le raycast qui ?un composant InteractableObject
             if (interactableObject != null)
             {
-                interactionText.text = "Press 'E' to interact with " + interactableObject.gameObject.name; //Affiche le texte d'intéraction avec le nom de l'objet
+                interactionText.text = "E) Interact"; //Affiche le texte d'intéraction avec le nom de l'objet
                 interactionText.enabled = true;
+                gameobjectText.text = interactableObject.gameObject.name;
+                gameobjectText.enabled = true;
             }
             else
             {
                 // Si le raycast touche un objet qui ne peut pas être interragit avec ça enleve le texte d'interaction
                 interactionText.enabled = false;
+                gameobjectText.enabled = false;
             }
         }
         else
         {
             // Si le raycast ne touche rien n'affiche pas le texte
             interactionText.enabled = false;
+            gameobjectText.enabled = false;
         }
     }
     void OnDrawGizmos()

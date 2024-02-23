@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHealthPoint: 100
   actualHealthPoint: 100
   weightLimit: 100
-  actualWeight: 0
+  actualWeight: 5
   money: 101
   faction: 0
   type: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
     - subSkillName: Acrobatics
       subSkillLevel: 0
     - subSkillName: Athletics
-      subSkillLevel: 0
+      subSkillLevel: 15
   - skillName: Melee Weapons
     skillLevel: 15
     subSkills:
