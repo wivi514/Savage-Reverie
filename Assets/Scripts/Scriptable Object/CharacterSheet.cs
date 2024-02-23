@@ -7,7 +7,8 @@ public class CharacterSheet : ScriptableObject
 {
     public string characterName;
     public int level;
-    public int healthPoint;
+    public int maxHealthPoint;
+    public int actualHealthPoint;
     public int weightLimit;
     public int actualWeight;
     public int money;

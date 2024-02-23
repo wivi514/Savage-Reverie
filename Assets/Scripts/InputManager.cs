@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
     {
         controls = new PlayerControls();
 
-        interact = GameObject.Find("Player").GetComponent<Interact>();
+        interact = GameObject.Find("Interact").GetComponent<Interact>();
 
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
@@ -39,6 +39,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.canceled += StopMove;
         controls.Player.Jump.performed += JumpInput;
         controls.Player.Sprint.performed += SprintInput;
+        controls.Player.Sprint.canceled += StopSprint;
 
         controls.Player.Interact.performed += InteractInput;
 
@@ -51,6 +52,7 @@ public class InputManager : MonoBehaviour
         controls.Player.Movement.canceled -= StopMove;
         controls.Player.Jump.performed -= JumpInput;
         controls.Player.Sprint.performed -= SprintInput;
+        controls.Player.Sprint.canceled -= StopSprint;
 
         controls.Player.Interact.performed -= InteractInput;
 
@@ -88,6 +90,11 @@ public class InputManager : MonoBehaviour
     private void SprintInput(InputAction.CallbackContext ctx)
     {
         isSprinting = ctx.ReadValueAsButton();
+    }
+
+    private void StopSprint(InputAction.CallbackContext ctx)
+    {
+        isSprinting = false;
     }
 
     private void MenuInput(InputAction.CallbackContext context)

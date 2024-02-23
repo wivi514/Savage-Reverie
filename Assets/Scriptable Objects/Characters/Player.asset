@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Bob
   level: 1
-  healthPoint: 100
+  maxHealthPoint: 100
+  actualHealthPoint: 100
   weightLimit: 100
   actualWeight: 0
-  money: 100
+  money: 101
   faction: 0
   type: 0
   sex: 0
