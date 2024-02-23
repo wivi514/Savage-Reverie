@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class Interact : MonoBehaviour
             // Assigne le script InteractableObject de l'objet toucher à la variable interactable object
             Interactable interactableObject = hit.collider.GetComponent<Interactable>();
 
-            // Affiche le texte UI si il y ?un objet détect?par le raycast qui ?un composant InteractableObject
+            // Affiche le texte UI si il y à un objet détect?par le raycast qui ?un composant InteractableObject
             if (interactableObject != null)
             {
                 interactionText.text = "Press 'E' to interact with " + interactableObject.gameObject.name; //Affiche le texte d'intéraction avec le nom de l'objet

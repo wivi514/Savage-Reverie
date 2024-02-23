@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    private InventorySystem inventorySystem;
-
     PlayerControls controls;
-    PlayerMovement pm;
+    Interact interact;
+    PlayerMovement playerMovement;
 
     public static Vector2 movementInput;
+    public static bool isSprinting;
 
     private void Awake()
     {
         controls = new PlayerControls();
-        inventorySystem = FindAnyObjectByType<InventorySystem>();
-        pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+        interact = GameObject.Find("Player").GetComponent<Interact>();
+
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         // Enable the New Input System from unity
         controls.Player.Enable();
@@ -30,27 +33,23 @@ public class InputManager : MonoBehaviour
     {
         controls.Player.Movement.performed += MoveInput;
         controls.Player.Movement.canceled += StopMove;
+        controls.Player.Jump.performed += JumpInput;
+        controls.Player.Sprint.performed += SprintInput;
 
-        Debug.Log($"Inventory System is null: {inventorySystem == null}");
-        if (inventorySystem != null)
-        {
-            controls.Player.Inventory.performed += ctx => inventorySystem.ToggleInventory();
-        }
-        else
-        {
-            Debug.LogError("InventorySystem is not assigned in InputManager.");
-        }
-
+        controls.Player.Interact.performed += InteractInput;
     }
 
     private void OnDisable()
     {
         controls.Player.Movement.performed -= MoveInput;
         controls.Player.Movement.canceled -= StopMove;
+        controls.Player.Jump.performed -= JumpInput;
+        controls.Player.Sprint.performed -= SprintInput;
 
-        controls.Player.Inventory.performed -= ctx => inventorySystem.ToggleInventory();
+        controls.Player.Interact.performed -= InteractInput;
     }
 
+    //Get the Input from the movement key
     private void MoveInput(InputAction.CallbackContext ctx)
     {
         // Grab the input and set it as a vector2 variable
@@ -58,10 +57,28 @@ public class InputManager : MonoBehaviour
         Debug.Log(movementInput);
     }
 
+    //Get when you stop pressing the movement key
     private void StopMove(InputAction.CallbackContext ctx)
     {
         // When movement is canceled, set the movement input to zero to stop the player
         movementInput = Vector2.zero;
     }
 
+    // Make the player jump when pressing the jump input
+    private void JumpInput(InputAction.CallbackContext ctx)
+    {
+        playerMovement.Jump();
+    }
+
+    //Interact with object when pressing the interact input
+    private void InteractInput(InputAction.CallbackContext ctx)
+    {
+        interact.TryInteract();
+    }
+
+    //Make the player sprint when pressing the sprint input
+    private void SprintInput(InputAction.CallbackContext ctx)
+    {
+        isSprinting = ctx.ReadValueAsButton();
+    }
 }

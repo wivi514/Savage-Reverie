@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private float speed = 10f;
-    private float jumpForce = 1;
+
+    private float sprintSpeedMultiplier = 1.75f; // 75% faster than basic movement
+    private float sprintSpeed;
+
+    private float jumpForce = 250f;
     public bool isGrounded = false;
     private byte raycastJump = 1;
     private float speedJumpModifier = 0.5f; // Speed multiplier when player jumps
@@ -17,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerCamera = Camera.main;
+
+        sprintSpeed = speed * sprintSpeedMultiplier;
     }
 
     // Update is called once per frame
@@ -31,11 +35,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
         }
-
-        Move(InputManager.movementInput); // Call the movement function in FixedUpdate
+        Move(InputManager.movementInput, InputManager.isSprinting); // Call the movement function in FixedUpdate
     }
 
-    public void Move(Vector2 moveInput)
+    public void Move(Vector2 moveInput, bool isSprinting)
     {
         // Calculate the move direction based on camera orientation
         Vector3 cameraForward = playerCamera.transform.forward;
@@ -44,13 +47,23 @@ public class PlayerMovement : MonoBehaviour
         cameraRight.y = 0f;
         Vector3 moveDirection = cameraForward.normalized * moveInput.y + cameraRight.normalized * moveInput.x;
 
+        float currentSpeed = isSprinting ? sprintSpeed : speed; // Choose current speed based on sprint input
+
         if (isGrounded)
         {
-            rb.velocity = new Vector3(moveDirection.x * speed, rb.velocity.y, moveDirection.z * speed);
+            rb.velocity = new Vector3(moveDirection.x * currentSpeed, rb.velocity.y, moveDirection.z * currentSpeed);
         }
         else
         {
-            rb.velocity = new Vector3(moveDirection.x * speed * speedJumpModifier, rb.velocity.y, moveDirection.z * speed * speedJumpModifier);
+            rb.velocity = new Vector3(moveDirection.x * currentSpeed * speedJumpModifier, rb.velocity.y, moveDirection.z * currentSpeed * speedJumpModifier);
+        }
+    }
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(new Vector3(0, jumpForce));
+            Debug.Log("Is Jumping");
         }
     }
 

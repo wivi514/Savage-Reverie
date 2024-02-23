@@ -4,44 +4,41 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    //Variables
-    [SerializeField] GameObject interactable;
-
     public void Interact()
     {
-        if (interactable != null)
+        // Affiche l'objet avec lequel on intéragit dans la console Unity
+        Debug.Log("Interacting with " + gameObject.name);
+
+        #region Door
+        //Regarde si l'objet à un tag "Button"
+        if (gameObject.CompareTag("Door"))
         {
-            // Affiche l'objet avec lequel on intéragit dans la console Unity
-            Debug.Log("Interacting with " + gameObject.name);
+            //Regarde si l'objet à un Animator
+            Animator doorAnimator = gameObject.GetComponent<Animator>();
 
-            #region Door
-            //Regarde si l'objet à un tag "Button"
-            if (this.gameObject.CompareTag("Button"))
+            //Si l'objet à un animator
+            if (doorAnimator != null)
             {
-                //Regarde si l'objet à un Animator
-                Animator doorAnimator = interactable.GetComponent<Animator>();
+                // Regarde si la porte est ouverte
+                bool isDoorOpen = doorAnimator.GetBool("doorOpen");
 
-                //Si l'objet à un animator
-                if (doorAnimator != null)
-                {
-                    // Regarde si la porte est ouverte
-                    bool isDoorOpen = doorAnimator.GetBool("doorOpen");
-
-                    AudioSource doorAudio = interactable.GetComponent<AudioSource>();
-                    // Ferme ou ouvre la porte dépendamment de si elle est déja ouverte en inversant le boolean
-                    doorAnimator.SetBool("doorOpen", !isDoorOpen);
-                    doorAudio.Play();
-                }
+                AudioSource doorAudio = gameObject.GetComponent<AudioSource>();
+                // Ferme ou ouvre la porte dépendamment de si elle est déja ouverte en inversant le boolean
+                doorAnimator.SetBool("doorOpen", !isDoorOpen);
+                doorAudio.Play();
             }
-            #endregion
-
-            #region Object
-            //Regarde si l'objet à un tag Object
-            if (this.gameObject.CompareTag("Object"))
-            {
-                Destroy(this.gameObject);
-            }
-            #endregion
         }
+        #endregion
+
+        #region Object
+        // Check if the object has a Object tag
+        if (gameObject.CompareTag("Object"))
+        {
+            Inventory playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+            SceneObjectInformation sceneObjectInformation = gameObject.GetComponent<SceneObjectInformation>();
+            playerInventory.AddItem(sceneObjectInformation.scriptableObject);
+            Destroy(gameObject); // Destroy the interactable object from the scene once it's picked up
+        }
+        #endregion
     }
 }

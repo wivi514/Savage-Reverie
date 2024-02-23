@@ -39,3 +39,10 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+Logs/AssetImportWorker0-prev.log
+Logs/AssetImportWorker0-prev.log
+Logs/AssetImportWorker1-prev.log
+Logs/AssetImportWorker0-prev.log
+*.log
+UserSettings/Layouts/default-2022.dwlt
+UserSettings/HDRPUserSettings.asset
