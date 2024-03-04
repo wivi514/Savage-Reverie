@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Bob
   level: 1
   maxHealthPoint: 100
-  actualHealthPoint: 100
+  actualHealthPoint: 170
   weightLimit: 100
   actualWeight: 5
   money: 101
@@ -62,7 +62,7 @@ MonoBehaviour:
     - subSkillName: Acrobatics
       subSkillLevel: 0
     - subSkillName: Athletics
-      subSkillLevel: 15
+      subSkillLevel: 16.8
   - skillName: Melee Weapons
     skillLevel: 15
     subSkills:
