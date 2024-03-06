@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
 
         interact = GameObject.Find("Interact").GetComponent<Interact>();
 
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerMovement = GameObject.Find("Capsule and Movement").GetComponent<PlayerMovement>();
 
         playerMenu = GameObject.Find("Player Menu UI").GetComponent<PlayerMenu>();
 
@@ -77,6 +77,7 @@ public class InputManager : MonoBehaviour
     // Make the player jump when pressing the jump input
     private void JumpInput(InputAction.CallbackContext ctx)
     {
+        Debug.Log("Jumping");
         playerMovement.Jump();
     }
 
@@ -92,6 +93,7 @@ public class InputManager : MonoBehaviour
         isSprinting = ctx.ReadValueAsButton();
     }
 
+    //When the player stop holding the sprint button it stop sprinting
     private void StopSprint(InputAction.CallbackContext ctx)
     {
         isSprinting = false;

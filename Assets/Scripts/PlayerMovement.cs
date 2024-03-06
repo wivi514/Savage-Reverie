@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float sprintSpeed;
 
     private float jumpForce = 250f;
-    public bool isGrounded = false;
+    public bool isGrounded;
     private byte raycastJump = 1;
     private float speedJumpModifier = 0.5f; // Speed multiplier when player jumps
 
@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             rb.AddForce(new Vector3(0, jumpForce));
-            Debug.Log("Is Jumping");
         }
     }
 }
