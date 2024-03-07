@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Bob
   level: 1
-  maxHealthPoint: 100
-  actualHealthPoint: 170
+  maxHealth: 100
+  currentHealth: 100
   weightLimit: 100
   actualWeight: 5
   money: 101

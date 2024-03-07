@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   level: 5
-  healthPoint: 100
+  maxHealth: 100
+  currentHealth: 0
   weightLimit: 100
   actualWeight: 0
   money: 0

@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         //Need to change it so it only update when player takes damage or heal himself
-        slider.maxValue = characterSheetPlayer.maxHealthPoint;
-        slider.value = characterSheetPlayer.actualHealthPoint;
+        slider.maxValue = characterSheetPlayer.maxHealth;
+        slider.value = characterSheetPlayer.currentHealth;
     }
 }

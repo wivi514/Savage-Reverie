@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewCharacter", menuName = "Characters/Character")]
@@ -7,8 +5,8 @@ public class CharacterSheet : ScriptableObject
 {
     public string characterName;
     public int level;
-    public int maxHealthPoint;
-    public int actualHealthPoint;
+    public int maxHealth;
+    public int currentHealth;
     public int weightLimit;
     public int actualWeight;
     public int money;

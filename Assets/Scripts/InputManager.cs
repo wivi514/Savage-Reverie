@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +8,8 @@ public class InputManager : MonoBehaviour
     Interact interact;
     PlayerMovement playerMovement;
     PlayerMenu playerMenu;
+    AimDownSight aimDownSight;
+    [SerializeField] EquippedWeapon equippedWeapon; //Need to change how this is done
 
     public static Vector2 movementInput;
     public static bool isSprinting;
@@ -21,9 +20,11 @@ public class InputManager : MonoBehaviour
 
         interact = GameObject.Find("Interact").GetComponent<Interact>();
 
-        playerMovement = GameObject.Find("Capsule and Movement").GetComponent<PlayerMovement>();
+        playerMovement = GameObject.Find("Capsule and Scripts").GetComponent<PlayerMovement>();
 
         playerMenu = GameObject.Find("Player Menu UI").GetComponent<PlayerMenu>();
+
+        aimDownSight = GameObject.Find("Capsule and Scripts").GetComponent<AimDownSight>();
 
         // Enable the New Input System from unity
         controls.Player.Enable();
@@ -44,6 +45,11 @@ public class InputManager : MonoBehaviour
         controls.Player.Interact.performed += InteractInput;
 
         controls.Player.Menu.performed += MenuInput;
+
+        controls.Player.Aim.performed += StartAiming;
+        controls.Player.Aim.canceled += StopAiming;
+
+        controls.Player.Shoot.performed += ShootInput;
     }
 
     private void OnDisable()
@@ -57,6 +63,11 @@ public class InputManager : MonoBehaviour
         controls.Player.Interact.performed -= InteractInput;
 
         controls.Player.Menu.performed -= MenuInput;
+
+        controls.Player.Aim.performed -= StartAiming;
+        controls.Player.Aim.canceled -= StopAiming;
+
+        controls.Player.Shoot.performed -= ShootInput;
     }
 
     //Get the Input from the movement key
@@ -102,5 +113,20 @@ public class InputManager : MonoBehaviour
     private void MenuInput(InputAction.CallbackContext context)
     {
         playerMenu.ToggleMenu();
+    }
+
+    private void StartAiming(InputAction.CallbackContext context)
+    {
+        aimDownSight.Aiming(true);
+    }
+
+    private void StopAiming(InputAction.CallbackContext context)
+    {
+        aimDownSight.Aiming(false);
+    }
+
+    private void ShootInput(InputAction.CallbackContext context)
+    {
+        equippedWeapon.shoot();
     }
 }
