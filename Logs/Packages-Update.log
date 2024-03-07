@@ -41,3 +41,29 @@ The following packages were updated:
   com.unity.render-pipelines.high-definition from version 14.0.0 to 14.0.9
   com.unity.timeline from version 1.6.3 to 1.7.6
   com.unity.visualscripting from version 1.7.6 to 1.9.1
+
+=== Wed Mar  6 19:06:46 2024
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ads from version 2.0.8 to 4.4.2
+  com.unity.analytics from version 3.3.2 to 3.8.1
+  com.unity.collab-proxy from version 1.2.16 to 2.2.0
+  com.unity.purchasing from version 2.0.6 to 4.9.3
+  com.unity.render-pipelines.high-definition from version 5.13.0-preview to 14.0.9
+  com.unity.textmeshpro from version 2.0.0 to 3.0.6
+  com.unity.timeline from version 1.0.0 to 1.7.6
+The following packages were removed:
+  com.unity.package-manager-ui@2.1.2
+
+=== Wed Mar  6 19:06:46 2024
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.ads@4.4.2
+  com.unity.analytics@3.8.1
+  com.unity.purchasing@4.9.3

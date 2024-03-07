@@ -8,12 +8,14 @@ public class PlayerMovement : MonoBehaviour
     private float sprintSpeed;
 
     private float jumpForce = 250f;
-    public bool isGrounded = false;
+    public bool isGrounded;
     private byte raycastJump = 1;
     private float speedJumpModifier = 0.5f; // Speed multiplier when player jumps
 
     private Rigidbody rb;
     private Camera playerCamera;
+
+    [SerializeField] CharacterSheet characterSheetPlayer;
 
     void Awake()
     {
@@ -21,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
         playerCamera = Camera.main;
 
         sprintSpeed = speed * sprintSpeedMultiplier;
+
+        Debug.Log(characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1);
     }
 
     // Update is called once per frame
@@ -51,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
-            rb.velocity = new Vector3(moveDirection.x * currentSpeed, rb.velocity.y, moveDirection.z * currentSpeed);
+            rb.velocity = new Vector3(moveDirection.x * currentSpeed * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics")/100 + 1), rb.velocity.y, moveDirection.z * currentSpeed * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1));
         }
         else
         {
-            rb.velocity = new Vector3(moveDirection.x * currentSpeed * speedJumpModifier, rb.velocity.y, moveDirection.z * currentSpeed * speedJumpModifier);
+            rb.velocity = new Vector3(moveDirection.x * currentSpeed * speedJumpModifier * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1), rb.velocity.y, moveDirection.z * currentSpeed * speedJumpModifier * (characterSheetPlayer.GetSubSkillLevel("Survival", "Athletics") / 100 + 1));
         }
     }
     public void Jump()
@@ -63,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             rb.AddForce(new Vector3(0, jumpForce));
-            Debug.Log("Is Jumping");
         }
     }
 

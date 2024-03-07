@@ -1,22 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewCharacter", menuName = "Characters/Character")]
 public class CharacterSheet : ScriptableObject
 {
     public string characterName;
-    public int healthPoint;
+    public int level;
+    public int maxHealth;
+    public int currentHealth;
+    public int weightLimit;
+    public int actualWeight;
+    public int money;
     public Faction faction;
     public CharacterType type;
     public Sex sex;
     public Skill[] skills;
 
+    // Method to get the skill level by name
+    public float GetSkillLevel(string skillName)
+    {
+        foreach (Skill skill in skills)
+        {
+            if (skill.skillName == skillName)
+            {
+                return skill.skillLevel;
+            }
+        }
+        return 0; // Skill not found
+    }
+
+    // Method to get the sub-skill level by skill name and sub-skill name
+    public float GetSubSkillLevel(string skillName, string subSkillName)
+    {
+        foreach (Skill skill in skills)
+        {
+            if (skill.skillName == skillName)
+            {
+                foreach (SubSkill subSkill in skill.subSkills)
+                {
+                    if (subSkill.subSkillName == subSkillName)
+                    {
+                        return subSkill.subSkillLevel;
+                    }
+                }
+            }
+        }
+        return 0; // Sub-skill not found
+    }
+
     void OnEnable()
     {
-        // Assign default skills and their sub-skills
-        skills = new Skill[]
+        if (faction != Faction.Player)
         {
+            // Assign default skills and their sub-skills to the NPC if it's not already done
+            if (skills == null || skills.Length == 0)
+            {
+                skills = new Skill[]
+                {
             new Skill { skillName = "Explosives", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Throw" } } },
             new Skill { skillName = "Guns", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Revolver" }, new SubSkill { subSkillName = "Rifle" } } },
             new Skill { skillName = "Sneak", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Crouch" }, new SubSkill { subSkillName = "Lockpicking" } } },
@@ -26,7 +65,49 @@ public class CharacterSheet : ScriptableObject
             new Skill { skillName = "Speech", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Barter" } } },
             new Skill { skillName = "Survival", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Acrobatics" }, new SubSkill { subSkillName = "Athletics" } } },
             new Skill { skillName = "Melee Weapons", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Blunt" }, new SubSkill { subSkillName = "Blade" }, new SubSkill { subSkillName = "Unarmed" } } }
-        };
+                };
+            }
+            // Initialize skill levels
+            foreach (Skill skill in skills)
+            {
+                skill.skillLevel = level * 3;
+
+                foreach (SubSkill subSkill in skill.subSkills)
+                {
+                    subSkill.subSkillLevel = level * 3;
+                }
+            }
+        }
+
+        if (faction == Faction.Player)
+        {
+            // Assign default skills and their sub-skills to the player if it's not already done
+            if (skills == null || skills.Length == 0)
+            {
+                skills = new Skill[]
+                {
+            new Skill { skillName = "Explosives", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Throw" } } },
+            new Skill { skillName = "Guns", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Revolver" }, new SubSkill { subSkillName = "Rifle" } } },
+            new Skill { skillName = "Sneak", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Crouch" }, new SubSkill { subSkillName = "Lockpicking" } } },
+            new Skill { skillName = "Medicine", subSkills = new SubSkill[0] },
+            new Skill { skillName = "Repair", subSkills = new SubSkill[0] },
+            new Skill { skillName = "Science", subSkills = new SubSkill[0] },
+            new Skill { skillName = "Speech", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Barter" } } },
+            new Skill { skillName = "Survival", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Acrobatics" }, new SubSkill { subSkillName = "Athletics" } } },
+            new Skill { skillName = "Melee Weapons", subSkills = new SubSkill[] { new SubSkill { subSkillName = "Blunt" }, new SubSkill { subSkillName = "Blade" }, new SubSkill { subSkillName = "Unarmed" } } }
+                };
+                // Initialize skill levels
+                foreach (Skill skill in skills)
+                {
+                    skill.skillLevel = 15;
+
+                    foreach (SubSkill subSkill in skill.subSkills)
+                    {
+                        subSkill.subSkillLevel = 1;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -58,6 +139,7 @@ public enum Sex
 public class Skill
 {
     public string skillName;
+    public float skillLevel;
     public SubSkill[] subSkills;
 }
 
@@ -65,4 +147,5 @@ public class Skill
 public class SubSkill
 {
     public string subSkillName;
+    public float subSkillLevel;
 }

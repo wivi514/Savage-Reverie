@@ -19,3 +19,7 @@ MonoBehaviour:
   weight: 1
   value: 1
   canStack: 1
+  attackSpeed: 0
+  damage: 0
+  weapon: 0
+  weaponCategory: 0
