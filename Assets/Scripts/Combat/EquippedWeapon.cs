@@ -14,6 +14,7 @@ public class EquippedWeapon : MonoBehaviour
 
     private void Start()
     {
+        //Need to add modifier depending on stats in character sheets
         damage = weapon.damage;
         speed = weapon.attackSpeed;
     }
