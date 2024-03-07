@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -11,7 +12,17 @@ public class CharacterHealth : MonoBehaviour
         // Check for character death or any other threshold
         if (characterSheet.currentHealth <= 0)
         {
-            Destroy(gameObject);
+            if (characterSheet.faction == Faction.Player)
+            {
+                Time.timeScale = 0;
+                //Add something for game over screen
+            }
+            else if(characterSheet.faction != Faction.Player)
+            {
+                //Disable Ai component to let it fall on the ground
+                GetComponent<AiNavigationScript>().enabled = false;
+                GetComponent<NavMeshAgent>().enabled = false;
+            }
         }
     }
 }

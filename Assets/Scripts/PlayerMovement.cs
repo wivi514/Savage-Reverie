@@ -69,12 +69,4 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpForce));
         }
     }
-
-    public void Jump()
-    {
-        if (isGrounded)
-        {
-            rb.AddForce(new Vector3(0, jumpForce));
-        }
-    }
 }

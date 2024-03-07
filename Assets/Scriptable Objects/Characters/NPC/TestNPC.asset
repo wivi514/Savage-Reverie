@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: 
   level: 5
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: -80
   weightLimit: 100
   actualWeight: 0
   money: 0
