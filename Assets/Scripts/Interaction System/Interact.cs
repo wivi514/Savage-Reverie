@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class Interact : MonoBehaviour
 {
@@ -59,12 +60,20 @@ public class Interact : MonoBehaviour
         {
             // Assigne le script InteractableObject de l'objet toucher à la variable interactable object
             Interactable interactableObject = hit.collider.GetComponent<Interactable>();
+            Inventory containerInventory = hit.collider.GetComponent<Inventory>();
 
             // Affiche le texte UI si il y à un objet détect?par le raycast qui ?un composant InteractableObject
-            if (interactableObject != null)
+            if (interactableObject != null && containerInventory == null)
             {
                 interactionText.text = "E) Interact"; //Affiche le texte d'intéraction avec le nom de l'objet
                 interactionText.enabled = true;
+                gameobjectText.text = interactableObject.gameObject.name;
+                gameobjectText.enabled = true;
+            }
+            else if(interactableObject != null && containerInventory != null)
+            {
+                string[] itemNames = containerInventory.items.Select(item => item.objectName).ToArray();
+                UIManager.Instance.UpdateContainerUI(itemNames); 
                 gameobjectText.text = interactableObject.gameObject.name;
                 gameobjectText.enabled = true;
             }

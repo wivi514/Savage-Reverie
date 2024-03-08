@@ -42,5 +42,15 @@ public class EquippedWeapon : MonoBehaviour
 
             bullet.SetTarget(hit.point); // Pass the hit point to the bullet
         }
+        else
+        {
+            GameObject bulletObject = Instantiate(bulletPrefab, barrelTransform.position, Quaternion.LookRotation(barrelTransform.forward));
+            Bullet bullet = bulletObject.GetComponent<Bullet>();
+
+            // Assign weapon stats to the bullet
+            bullet.damage = this.damage; // Set bullet damage from weapon
+            bullet.speed = this.speed; // Set bullet speed from weapon
+            bullet.attacker = attacker; // Set the attacker
+        }
     }
 }
