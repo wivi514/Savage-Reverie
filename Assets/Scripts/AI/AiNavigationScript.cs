@@ -14,6 +14,8 @@ public class AiNavigationScript : MonoBehaviour
     private bool isIdle = false;
     private string parentName; //To delete
 
+    private GameObject target;
+
     [System.Serializable]
     public class AIStatePosition
     {
@@ -72,6 +74,7 @@ public class AiNavigationScript : MonoBehaviour
                 agent.destination = playerCapsule.position;
                 break;
             case AIState.Attack:
+                //AttackTarget();
                 Debug.Log(parentName + ": Attacking");
                 break;
             case AIState.Flee:
@@ -101,5 +104,29 @@ public class AiNavigationScript : MonoBehaviour
         //Change AIState after waiting
         SetNextState();
         isIdle = false;
+    }
+
+    public void TriggerAttackState(GameObject attacker)
+    {
+        currentState = AIState.Attack;
+        target = attacker;
+        // Transition to attack logic, e.g., move towards attacker
+    }
+
+    //void AttackTarget()
+    //{
+    //    if (target != null)
+    //    {
+    //        Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+    //        GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.position, Quaternion.LookRotation(directionToTarget));
+    //        Bullet bulletComponent = bullet.GetComponent<Bullet>();
+    //        bulletComponent.SetDirection(directionToTarget);
+    //    }
+    //}
+
+    void TriggerChaseState(GameObject chase)
+    {
+        currentState = AIState.Chase;
+        agent.destination = chase.transform.position;
     }
 }

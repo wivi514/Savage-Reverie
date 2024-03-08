@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     private Vector3 targetPosition;
     private bool targetSet = false;
 
+    public GameObject attacker;
+
     void Start()
     {
         startPosition = transform.position;
@@ -39,9 +41,14 @@ public class Bullet : MonoBehaviour
     {
         // Check if the object we hit has a component that links to a CharacterSheet
         var character = other.GetComponent<CharacterHealth>();
+        AiNavigationScript aiNavigation = other.GetComponent<AiNavigationScript>();
         if (character != null)
         {
             character.ApplyDamage(damage);
+            if (aiNavigation != null)
+            {
+                aiNavigation.TriggerAttackState(attacker);
+            }
         }
         Destroy(gameObject); // Destroy bullet on hit
     }

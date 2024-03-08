@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2258.2483, g: 2399.5393, b: 3496.0552, a: 1}
+  m_IndirectSpecularColor: {r: 2260.135, g: 2403.223, b: 3505.4497, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1346,10 +1346,10 @@ GameObject:
   - component: {fileID: 327754464}
   - component: {fileID: 327754463}
   - component: {fileID: 327754462}
+  - component: {fileID: 327754466}
   - component: {fileID: 327754461}
   - component: {fileID: 327754460}
   - component: {fileID: 327754465}
-  - component: {fileID: 327754466}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2070,6 +2070,7 @@ MonoBehaviour:
   barrelTransform: {fileID: 2016406311}
   damage: 0
   speed: 0
+  characterSheet: {fileID: 11400000, guid: 5d4531203cccd154bbe776358c73b5eb, type: 2}
 --- !u!1 &535766600
 GameObject:
   m_ObjectHideFlags: 0
