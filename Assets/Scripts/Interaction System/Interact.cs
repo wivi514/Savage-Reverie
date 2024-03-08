@@ -7,95 +7,86 @@ using System.Linq;
 
 public class Interact : MonoBehaviour
 {
-    //Variables
-    public float interactionRange = 3f; // La distance ?laquel le joueur peut intéragir avec un objet
-    private TMP_Text interactionText; // Le texte ?l'écran permettant d'afficher si 
+    public float interactionRange = 3f;
+    private TMP_Text interactionText;
     private TMP_Text gameobjectText;
+    private RaycastHit previousHit;
+    private bool hasPreviousHit = false;
 
     void Awake()
     {
-        // attribue ?la variable interactionText le Text de l'UI pour l'interaction avec des objets.
         interactionText = GameObject.Find("Interaction Text").GetComponent<TMP_Text>();
         gameobjectText = GameObject.Find("GameObject Text").GetComponent<TMP_Text>();
-        //Cache le texte d'interaction lorsque la partie commence 
         interactionText.enabled = false;
         gameobjectText.enabled = false;
     }
 
-    private void Update()
+    void Update()
     {
-        //Utilise la fonction UpdateUI() pour permettre d'afficher ?l'écran le UI d'interaction si il y ?un objets avec lequel ont peut intéragir
-        UpdateUI();
+        PerformRaycastUpdateUI();
     }
 
-    //Fonction qui permet d'intéragir avec les objets qui ont le script InteractableObject attach?sur eux
     public void TryInteract()
     {
-        // Envoie un raycast au centre de l'écran pour voir si il y ?un objet
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        RaycastHit hit;
-
-        // Regarde si il y a un objet avec lequel interagir ?la distance appropri?
-        if (Physics.Raycast(ray, out hit, interactionRange))
+        if (hasPreviousHit)
         {
-            // Assigne le script InteractableObject de l'objet touch??la variable interactable object
-            Interactable interactableObject = hit.collider.GetComponent<Interactable>();
-
-            if (interactableObject != null) // Si l'objet touch??un Component InteractableObject
+            Interactable interactableObject = previousHit.collider.GetComponent<Interactable>();
+            if (interactableObject != null)
             {
-                // Appel la méthode Interact du script InteractableObject de l'objet
                 interactableObject.Interact();
             }
         }
     }
 
-    private void UpdateUI()
+    void PerformRaycastUpdateUI()
     {
-        // Envoie un raycast au centre de l'écran pour voir si il y ?un objet
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-        // Regarde si il y a un objet avec lequel interagir ?la distance appropri?
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
-            // Assigne le script InteractableObject de l'objet toucher à la variable interactable object
-            Interactable interactableObject = hit.collider.GetComponent<Interactable>();
-            Inventory containerInventory = hit.collider.GetComponent<Inventory>();
+            if (!hasPreviousHit || hit.collider.gameObject != previousHit.collider.gameObject)
+            {
+                UpdateInteractionUI(hit);
+            }
+        }
+        else if (hasPreviousHit)
+        {
+            ClearUI();
+        }
+        previousHit = hit;
+        hasPreviousHit = hit.collider != null;
+    }
 
-            // Affiche le texte UI si il y à un objet détect?par le raycast qui ?un composant InteractableObject
-            if (interactableObject != null && containerInventory == null)
-            {
-                interactionText.text = "E) Interact"; //Affiche le texte d'intéraction avec le nom de l'objet
-                interactionText.enabled = true;
-                gameobjectText.text = interactableObject.gameObject.name;
-                gameobjectText.enabled = true;
-            }
-            else if(interactableObject != null && containerInventory != null)
-            {
-                string[] itemNames = containerInventory.items.Select(item => item.objectName).ToArray();
-                UIManager.Instance.UpdateContainerUI(itemNames); 
-                gameobjectText.text = interactableObject.gameObject.name;
-                gameobjectText.enabled = true;
-            }
-            else
-            {
-                // Si le raycast touche un objet qui ne peut pas être interragit avec ça enleve le texte d'interaction
-                interactionText.enabled = false;
-                gameobjectText.enabled = false;
-            }
+    void UpdateInteractionUI(RaycastHit hit)
+    {
+        Interactable interactableObject = hit.collider.GetComponent<Interactable>();
+        Inventory containerInventory = hit.collider.GetComponent<Inventory>();
+        if (interactableObject != null && containerInventory == null)
+        {
+            interactionText.text = "E) Interact";
+            interactionText.enabled = true;
+            gameobjectText.text = interactableObject.gameObject.name;
+            gameobjectText.enabled = true;
+        }
+        else if (interactableObject != null && containerInventory != null)
+        {
+            string[] itemNames = containerInventory.items.Select(item => item.objectName).ToArray();
+            UIManager.Instance.UpdateContainerUI(itemNames);
+            gameobjectText.text = interactableObject.gameObject.name;
+            gameobjectText.enabled = true;
         }
         else
         {
-            // Si le raycast ne touche rien n'affiche pas le texte
-            interactionText.enabled = false;
-            gameobjectText.enabled = false;
+            ClearUI();
         }
     }
-    void OnDrawGizmos()
+
+    void ClearUI()
     {
-        // Affiche le raycast envoyé par la caméra en tant que rayon de couleur cyan dans la fenêtre scene sur Unity si on a enable les Gizmos
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(ray.origin, ray.origin + ray.direction * interactionRange);
+        interactionText.enabled = false;
+        gameobjectText.enabled = false;
+        if (UIManager.Instance) UIManager.Instance.ClearContainerUI(); // Make sure to clear container UI as well
+        hasPreviousHit = false; // Reset this flag when UI is cleared
     }
 }

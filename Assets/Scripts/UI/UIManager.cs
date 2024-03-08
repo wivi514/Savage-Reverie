@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void ClearContainerUI()
+    public void ClearContainerUI()
     {
         foreach (Transform child in contentPanel)
         {
