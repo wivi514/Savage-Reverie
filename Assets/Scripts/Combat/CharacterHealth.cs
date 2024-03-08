@@ -5,6 +5,11 @@ public class CharacterHealth : MonoBehaviour
 {
     public CharacterSheet characterSheet;
 
+    private void Start()
+    {
+        characterSheet.currentHealth = characterSheet.maxHealth; // Will need to change later if we ever add save game
+    }
+
     public void ApplyDamage(float damage)
     {
         characterSheet.currentHealth -= (int)damage;

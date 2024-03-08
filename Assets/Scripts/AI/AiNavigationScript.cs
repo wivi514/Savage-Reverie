@@ -16,6 +16,10 @@ public class AiNavigationScript : MonoBehaviour
 
     private GameObject target;
 
+    [Header("AI Attack Player")]
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject weaponFirePoint;
+
     [System.Serializable]
     public class AIStatePosition
     {
@@ -74,7 +78,7 @@ public class AiNavigationScript : MonoBehaviour
                 agent.destination = playerCapsule.position;
                 break;
             case AIState.Attack:
-                //AttackTarget();
+                AttackTarget();
                 Debug.Log(parentName + ": Attacking");
                 break;
             case AIState.Flee:
@@ -113,16 +117,16 @@ public class AiNavigationScript : MonoBehaviour
         // Transition to attack logic, e.g., move towards attacker
     }
 
-    //void AttackTarget()
-    //{
-    //    if (target != null)
-    //    {
-    //        Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
-    //        GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.position, Quaternion.LookRotation(directionToTarget));
-    //        Bullet bulletComponent = bullet.GetComponent<Bullet>();
-    //        bulletComponent.SetDirection(directionToTarget);
-    //    }
-    //}
+    void AttackTarget()
+    {
+        if (target != null)
+        {
+            Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+            GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.transform.position, Quaternion.LookRotation(directionToTarget));
+            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            bulletComponent.SetTarget(directionToTarget);
+        }
+    }
 
     void TriggerChaseState(GameObject chase)
     {

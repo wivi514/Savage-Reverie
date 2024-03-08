@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour
             character.ApplyDamage(damage);
             if (aiNavigation != null)
             {
+                Debug.Log("Triggering attack on " + other.name);
                 aiNavigation.TriggerAttackState(attacker);
             }
         }
