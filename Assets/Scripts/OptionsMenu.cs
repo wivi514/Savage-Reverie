@@ -35,7 +35,7 @@ public class OptionsMenu : MonoBehaviour
             mouseSensitivitySlider.value = pov.m_HorizontalAxis.m_MaxSpeed; //Assigne le slider à la sensibilité actuel de la souris
         }
 
-        qualityDropdown = GameObject.Find("Graphics preset dropdown").GetComponent<TMP_Dropdown>();
+        qualityDropdown = GameObject.Find("Graphics Preset Dropdown").GetComponent<TMP_Dropdown>();
         currentQualityLevel = QualitySettings.GetQualityLevel(); //Assigne l'index de la qualité du jeu (ex: Ultra = 5)
         qualityDropdown.value = currentQualityLevel; //Donne la valeur actuel du preset graphics
 
