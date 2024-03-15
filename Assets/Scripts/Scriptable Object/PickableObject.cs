@@ -1,5 +1,4 @@
 using UnityEngine;
-using static AiNavigationScript;
 
 [CreateAssetMenu(fileName = "Object Type", menuName = "Objects")]
 public class PickableObject : ScriptableObject

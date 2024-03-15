@@ -4,12 +4,12 @@ using UnityEngine;
 public class CharacterSheet : ScriptableObject
 {
     public string characterName;
-    public int level;
-    public int maxHealth;
-    public int currentHealth;
-    public int weightLimit;
-    public int actualWeight;
-    public int money;
+    [Range(0, 20)]public int level;
+    [Range(0, 20000)] public int maxHealth;
+    [Range(0, 20000)] public int currentHealth;
+    [Range(10, 500)] public int weightLimit;
+    [Range(0, 1000000)] public int actualWeight;
+    [Range(0, 100000000)] public int money;
     public Faction faction;
     public CharacterType type;
     public Sex sex;
