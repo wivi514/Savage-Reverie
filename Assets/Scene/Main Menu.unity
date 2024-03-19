@@ -1001,11 +1001,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: High Quality
-      m_Image: {fileID: 0}
-    - m_Text: Performant
+    - m_Text: High Fidelity
       m_Image: {fileID: 0}
     - m_Text: Balanced
+      m_Image: {fileID: 0}
+    - m_Text: Performant
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2207,7 +2207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Very Low
+  m_text: High Fidelity
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e6715f52a931d141b2d8f8300630b31, type: 2}
   m_sharedMaterial: {fileID: 5890983940909195574, guid: 1e6715f52a931d141b2d8f8300630b31,
