@@ -1491,7 +1491,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1564359854}
         m_TargetAssemblyTypeName: LocaleSelector, Assembly-CSharp
         m_MethodName: ChangeLocale
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

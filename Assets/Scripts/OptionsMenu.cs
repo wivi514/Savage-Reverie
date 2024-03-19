@@ -1,5 +1,4 @@
 using Cinemachine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +18,7 @@ public class OptionsMenu : MonoBehaviour
     private List<Resolution> filteredResolutions;
 
     private int currentQualityLevel;
-    private float currentRefreshRate;
     private int currentResolutionIndex;
-
-
 
     private void Awake()
     {
@@ -32,33 +28,24 @@ public class OptionsMenu : MonoBehaviour
             mouseSensitivitySlider = GameObject.Find("Mouse sensitivity Slider").GetComponent<Slider>();
             pov = virtualCamera.GetCinemachineComponent<CinemachinePOV>();
 
-            mouseSensitivitySlider.value = pov.m_HorizontalAxis.m_MaxSpeed; //Assigne le slider à la sensibilité actuel de la souris
+            mouseSensitivitySlider.value = pov.m_HorizontalAxis.m_MaxSpeed;
         }
 
         qualityDropdown = GameObject.Find("Graphics Preset Dropdown").GetComponent<TMP_Dropdown>();
-        currentQualityLevel = QualitySettings.GetQualityLevel(); //Assigne l'index de la qualité du jeu (ex: Ultra = 5)
-        qualityDropdown.value = currentQualityLevel; //Donne la valeur actuel du preset graphics
+        currentQualityLevel = QualitySettings.GetQualityLevel();
+        qualityDropdown.value = currentQualityLevel;
 
         resolutions = Screen.resolutions;
-        filteredResolutions = new List<Resolution>();
         resolutionDropdown = GameObject.Find("Resolution dropdown").GetComponent<TMP_Dropdown>();
         resolutionDropdown.ClearOptions();
-        currentRefreshRate = Screen.currentResolution.refreshRate;
 
+        // Now filtering based on resolution size only, without refresh rate
+        List<string> options = new List<string>();
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if (resolutions[i].refreshRate == currentRefreshRate)
-            {
-                filteredResolutions.Add(resolutions[i]);
-            }
-        }
-
-        List<string> options = new List<string>();
-        for (int i = 0; i < filteredResolutions.Count; i++)
-        {
-            string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + " Hz";
+            string resolutionOption = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(resolutionOption);
-            if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height)
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
@@ -70,7 +57,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetResolution(int resolutionIndex)
     {
-        Resolution resolution = filteredResolutions[resolutionIndex];
+        Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, true);
     }
 
@@ -79,21 +66,14 @@ public class OptionsMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(index, false);
     }
 
-    public void MouseSensitivitySlider() //Change la sensibilité de la souris selon le slider dans le menu options
+    public void MouseSensitivitySlider()
     {
-        pov.m_HorizontalAxis.m_MaxSpeed = mouseSensitivitySlider.value; //Change la sensibilité horizontal
-        pov.m_VerticalAxis.m_MaxSpeed = mouseSensitivitySlider.value; //Change la sensibilité vertical
+        pov.m_HorizontalAxis.m_MaxSpeed = mouseSensitivitySlider.value;
+        pov.m_VerticalAxis.m_MaxSpeed = mouseSensitivitySlider.value;
     }
 
     public void FPSCounterToggle(bool toggle)
     {
-        if (toggle)
-        {
-            fpsCounter.SetActive(true);
-        }
-        if (!toggle)
-        {
-            fpsCounter.SetActive(false);
-        }
+        fpsCounter.SetActive(toggle);
     }
 }
