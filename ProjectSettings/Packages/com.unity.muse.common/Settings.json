@@ -4,17 +4,17 @@
             {
                 "type": "Unity.Muse.Common.Editor.Settings.PreferenceDataWrapper`1[[System.Collections.Generic.List`1[[Unity.Muse.Common.Account.OrganizationInfo, Unity.Muse.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Unity.Muse.Common.Preferences, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "Unity.Muse.Common.Preferences.organizations",
-                "value": "{\"m_Value\":{\"value\":[{\"rid\":1000}]},\"references\":{\"version\":2,\"RefIds\":[{\"rid\":1000,\"type\":{\"class\":\"OrganizationInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"org_id\":\"3574057126594\",\"org_name\":\"HangC\",\"status\":\"not-entitled\"}}]}}"
+                "value": "{\"m_Value\":{\"value\":[{\"rid\":1000},{\"rid\":1001}]},\"references\":{\"version\":2,\"RefIds\":[{\"rid\":1000,\"type\":{\"class\":\"OrganizationInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"org_id\":\"3573672942236\",\"org_name\":\"AshVoid\",\"status\":\"free-trial\"}},{\"rid\":1001,\"type\":{\"class\":\"OrganizationInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"org_id\":\"3573672922634\",\"org_name\":\"wivi514 personal\",\"status\":\"not-entitled\"}}]}}"
             },
             {
                 "type": "Unity.Muse.Common.Editor.Settings.PreferenceDataWrapper`1[[Unity.Muse.Common.Account.OrganizationInfo, Unity.Muse.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.Muse.Common.Preferences, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "Unity.Muse.Common.Preferences.organization",
-                "value": "{\"m_Value\":{\"value\":{\"rid\":1000}},\"references\":{\"version\":2,\"RefIds\":[{\"rid\":1000,\"type\":{\"class\":\"OrganizationInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"org_id\":\"3574057126594\",\"org_name\":\"HangC\",\"status\":\"not-entitled\"}}]}}"
+                "value": "{\"m_Value\":{\"value\":{\"rid\":1000}},\"references\":{\"version\":2,\"RefIds\":[{\"rid\":1000,\"type\":{\"class\":\"OrganizationInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"org_id\":\"3573672942236\",\"org_name\":\"AshVoid\",\"status\":\"free-trial\"}}]}}"
             },
             {
                 "type": "Unity.Muse.Common.Editor.Settings.PreferenceDataWrapper`1[[Unity.Muse.Common.Account.UsageInfo, Unity.Muse.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.Muse.Common.Preferences, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "Unity.Muse.Common.Preferences.usage",
-                "value": "{\"m_Value\":{\"value\":{\"rid\":1000}},\"references\":{\"version\":2,\"RefIds\":[{\"rid\":1000,\"type\":{\"class\":\"UsageInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"used\":0,\"total\":1000}}]}}"
+                "value": "{\"m_Value\":{\"value\":{\"rid\":1000}},\"references\":{\"version\":2,\"RefIds\":[{\"rid\":1000,\"type\":{\"class\":\"UsageInfo\",\"ns\":\"Unity.Muse.Common.Account\",\"asm\":\"Unity.Muse.Common\"},\"data\":{\"used\":1016,\"total\":1000}}]}}"
             },
             {
                 "type": "Unity.Muse.Common.Editor.Settings.PreferenceDataWrapper`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Unity.Muse.Common.Preferences, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
