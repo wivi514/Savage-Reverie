@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float jumpForce = 250f;
     public bool isGrounded;
-    private byte raycastJump = 1;
+    private float raycastJump = 1.1f;
     private float speedJumpModifier = 0.5f; // Speed multiplier when player jumps
 
     private Rigidbody rb;
