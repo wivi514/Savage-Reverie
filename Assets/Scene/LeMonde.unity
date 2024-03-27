@@ -607,6 +607,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8541022573630889564, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1027201178}
+    - target: {fileID: 8605578991656949653, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605578991656949653, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605578991656949653, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022206923517304817, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022206923517304817, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022206923517304817, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022206923517304817, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022206923517304817, guid: be87deb5fdfb9484881d131e0eb9ef15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -704,6 +749,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1027201178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4853970856051467485, guid: cf9a3d9be7ebe4c44bbe7b14412eb077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627706982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1037312170
 GameObject:
   m_ObjectHideFlags: 0
