@@ -3961,40 +3961,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1180875797178607555, guid: dc8a6a943304ea84da116ed62e8b9af5,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1966315463705330185, guid: dc8a6a943304ea84da116ed62e8b9af5,
         type: 3}
       propertyPath: m_Name
       value: inventoryPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100923662103040222, guid: dc8a6a943304ea84da116ed62e8b9af5,
-        type: 3}
-      propertyPath: m_Spacing
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100923662103040222, guid: dc8a6a943304ea84da116ed62e8b9af5,
-        type: 3}
-      propertyPath: m_ChildControlWidth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100923662103040222, guid: dc8a6a943304ea84da116ed62e8b9af5,
-        type: 3}
-      propertyPath: m_ChildControlHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100923662103040222, guid: dc8a6a943304ea84da116ed62e8b9af5,
-        type: 3}
-      propertyPath: m_ChildForceExpandWidth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100923662103040222, guid: dc8a6a943304ea84da116ed62e8b9af5,
-        type: 3}
-      propertyPath: m_ChildForceExpandHeight
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4735,6 +4705,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1966315463705330185, guid: dc8a6a943304ea84da116ed62e8b9af5,
         type: 3}
+    - target: {fileID: 7886230566702718393, guid: 50ffcb73d33a04c41978538d83c46f62,
+        type: 3}
+      propertyPath: itemsContainer
+      value: 
+      objectReference: {fileID: 1479040199}
+    - target: {fileID: 7886230566702718393, guid: 50ffcb73d33a04c41978538d83c46f62,
+        type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 362836957}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

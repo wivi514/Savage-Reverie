@@ -50,6 +50,8 @@ public class InputManager : MonoBehaviour
         controls.Player.Aim.canceled += StopAiming;
 
         controls.Player.Shoot.performed += ShootInput;
+
+        controls.Player.ScrollWheel.performed += ScrollInput;
     }
 
     private void OnDisable()
@@ -68,6 +70,8 @@ public class InputManager : MonoBehaviour
         controls.Player.Aim.canceled -= StopAiming;
 
         controls.Player.Shoot.performed -= ShootInput;
+
+        controls.Player.ScrollWheel.performed -= ScrollInput;
     }
 
     //Get the Input from the movement key
@@ -96,6 +100,7 @@ public class InputManager : MonoBehaviour
     private void InteractInput(InputAction.CallbackContext ctx)
     {
         interact.TryInteract();
+        UIManager.Instance.TakeSelectedItem(); // Call a method to handle item pickup
     }
 
     //Make the player sprint when pressing the sprint input
@@ -128,5 +133,11 @@ public class InputManager : MonoBehaviour
     private void ShootInput(InputAction.CallbackContext context)
     {
         equippedWeapon.shoot();
+    }
+
+    private void ScrollInput(InputAction.CallbackContext ctx)
+    {
+        float scroll = ctx.ReadValue<Vector2>().y; // Read the scroll value
+        UIManager.Instance.SelectItemByScroll(scroll); // Call a method to handle the selection
     }
 }
