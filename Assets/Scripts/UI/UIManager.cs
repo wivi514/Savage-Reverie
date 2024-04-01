@@ -23,11 +23,12 @@ public class UIManager : MonoBehaviour
 
     public void UpdateContainerUI(string[] itemNames)
     {
-        ClearContainerUI();
+        ClearContainerUI(); // Clear previous UI elements
         foreach (string itemName in itemNames)
         {
             GameObject itemUI = Instantiate(uiPanelPrefab, contentPanel);
-            itemUI.GetComponentInChildren<Text>().text = itemName; // Ensure your prefab has a Text child
+            // Ensure the prefab instantiated is the item entry prefab, not the inventory panel itself
+            itemUI.GetComponentInChildren<Text>().text = itemName;
         }
     }
 
