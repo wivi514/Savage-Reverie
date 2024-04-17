@@ -1,99 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-
-[System.Serializable]
-public class DialogueOption
-{
-    public string Text;
-    public UnityEvent OnSelect; // Events to trigger on selection
-}
+using TMPro;
+using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject dialogueUI; // Your dialogue panel
-    public TMP_Text characterLineText; // Text element for the character's line
-    public GameObject responseButtonPrefab; // A prefab for the response buttons
-    public Transform responseButtonContainer; // Container to hold response buttons
+    public static DialogueManager Instance { get; private set; }
+
+    public GameObject dialoguePanel;
+    public TMP_Text dialogueText;
+    public Transform responseContainer;
+    public GameObject responsePrefab;
+
+    public Color defaultResponseColor = Color.white;
+    public Color selectedResponseColor = new Color(1f, 0.51f, 0f);
 
     private Dialogue currentDialogue;
-    private int currentLineIndex = 0; // To keep track of the current line in the dialogue
+    private int selectedResponseIndex = 0;
 
-    private Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
-
-    // Call this to start a dialogue
-    public void StartDialogue(List<Dialogue> dialogues)
+    void Awake()
     {
-        dialogueQueue.Clear();
-        foreach (var dialogue in dialogues)
+        if (Instance == null)
         {
-            dialogueQueue.Enqueue(dialogue);
-        }
-        ShowNext();
-    }
-
-    // Call this to show the next dialogue in the queue
-    private void ShowNext()
-    {
-        if (dialogueQueue.Count == 0 && currentLineIndex >= currentDialogue.dialogueLines.Count)
-        {
-            EndDialogue();
-            return;
-        }
-
-        if (currentLineIndex < currentDialogue.dialogueLines.Count)
-        {
-            // Display the current line of dialogue
-            characterLineText.text = currentDialogue.dialogueLines[currentLineIndex];
-            currentLineIndex++;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            // Once all lines are displayed, show responses
-            foreach (Transform child in responseButtonContainer)
-            {
-                Destroy(child.gameObject);
-            }
-
-            // Create response buttons
-            foreach (var option in currentDialogue.responses)
-            {
-                GameObject button = Instantiate(responseButtonPrefab, responseButtonContainer);
-                button.GetComponentInChildren<TMP_Text>().text = option.Text;
-                button.GetComponent<Button>().onClick.AddListener(() => OnResponseSelected(option));
-            }
-
-            // Reset for the next dialogue in the queue
-            if (dialogueQueue.Count > 0)
-            {
-                currentDialogue = dialogueQueue.Dequeue();
-                currentLineIndex = 0;
-            }
+            Destroy(gameObject);
         }
+
+        dialoguePanel.SetActive(false);
     }
 
-    public void StartDialogue(DialogueScriptableObject dialogueSO)
+    public void StartDialogue(DialogueScriptableObject dialogueScriptableObject)
     {
-        dialogueQueue.Clear();
-        foreach (var dialogue in dialogueSO.dialogues)
+        if (dialogueScriptableObject.dialogues.Count > 0)
         {
-            dialogueQueue.Enqueue(dialogue);
+            currentDialogue = dialogueScriptableObject.dialogues[0];
+            dialogueText.text = currentDialogue.dialogueLines[0]; // Show the first line.
+            PopulateResponses(currentDialogue.responses); // Show the responses.
+            dialoguePanel.SetActive(true);
         }
-        ShowNext();
     }
 
-    private void OnResponseSelected(DialogueOption option)
+    void PopulateResponses(List<DialogueOption> responses)
     {
-        option.OnSelect.Invoke();
-        ShowNext();
+        foreach (Transform child in responseContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < responses.Count; i++)
+        {
+            GameObject responseObj = Instantiate(responsePrefab, responseContainer);
+            TMP_Text responseText = responseObj.GetComponentInChildren<TMP_Text>();
+            responseText.text = responses[i].text;
+            responseText.color = (i == selectedResponseIndex) ? selectedResponseColor : defaultResponseColor;
+        }
     }
 
-    private void EndDialogue()
+    public void ChangeResponseSelection(int direction)
     {
-        dialogueUI.SetActive(false);
-        // Re-enable player control if disabled
+        selectedResponseIndex += direction;
+        selectedResponseIndex = Mathf.Clamp(selectedResponseIndex, 0, currentDialogue.responses.Count - 1); // Use 'Count'
+        UpdateResponseColors();
     }
+
+    void UpdateResponseColors()
+    {
+        for (int i = 0; i < responseContainer.childCount; i++)
+        {
+            TMP_Text responseText = responseContainer.GetChild(i).GetComponentInChildren<TMP_Text>();
+            responseText.color = (i == selectedResponseIndex) ? selectedResponseColor : defaultResponseColor;
+        }
+    }
+
+    public void ConfirmResponse()
+    {
+        DialogueOption selectedResponse = currentDialogue.responses[selectedResponseIndex];
+        selectedResponse.onSelect.Invoke();
+    }
+
+    // ... Other methods as needed ...
 }

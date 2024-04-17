@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5026607123345987658}
   - component: {fileID: 7886230566702718393}
+  - component: {fileID: 5336535595881045901}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -44,5 +45,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f613f065c7ca345ba90d7713f0f469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiPanelPrefab: {fileID: 0}
+  uiPanelPrefab: {fileID: 1966315463705330185, guid: dc8a6a943304ea84da116ed62e8b9af5,
+    type: 3}
   contentPanel: {fileID: 0}
+  items: []
+  playerInventory: {fileID: 0}
+  containerItems: []
+  itemsContainer: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.51, b: 0, a: 1}
+--- !u!114 &5336535595881045901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297924199119693208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca764c42447f7e42814f82d8dd9107d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 0}
+  dialogueText: {fileID: 0}
+  optionContainer: {fileID: 0}
+  optionPrefab: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.50980395, b: 0, a: 1}

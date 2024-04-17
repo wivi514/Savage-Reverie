@@ -13,7 +13,22 @@ MonoBehaviour:
   m_Name: Test Dialogue
   m_EditorClassIdentifier: 
   dialogues:
-  - id: 
-    characterName: 
-    dialogueLines: []
-    responses: []
+  - id: Test-ID
+    characterName: Bob
+    dialogueLines:
+    - a
+    - b
+    - c
+    responses:
+    - Text: a
+      OnSelect:
+        m_PersistentCalls:
+          m_Calls: []
+    - Text: b
+      OnSelect:
+        m_PersistentCalls:
+          m_Calls: []
+    - Text: c
+      OnSelect:
+        m_PersistentCalls:
+          m_Calls: []

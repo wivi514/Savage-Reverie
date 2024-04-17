@@ -30,10 +30,17 @@ public class Interact : MonoBehaviour
     {
         if (hasPreviousHit)
         {
+            // Attempt to interact with the object
             Interactable interactableObject = previousHit.collider.GetComponent<Interactable>();
             if (interactableObject != null)
             {
                 interactableObject.Interact();
+                DialogueHolder dialogueHolder = interactableObject.GetComponent<DialogueHolder>();
+                if (dialogueHolder != null)
+                {
+                    // Trigger dialogue UI update
+                    DialogueManager.Instance.StartDialogue(dialogueHolder.NPCDialogue);
+                }
             }
         }
     }
@@ -62,7 +69,8 @@ public class Interact : MonoBehaviour
     {
         Interactable interactableObject = hit.collider.GetComponent<Interactable>();
         Inventory containerInventory = hit.collider.GetComponent<Inventory>();
-        if (interactableObject != null && containerInventory == null)
+        DialogueHolder dialogueHolder = hit.collider.GetComponent<DialogueHolder>();
+        if (interactableObject != null && containerInventory == null && dialogueHolder == null)
         {
             interactionText.text = "E) Interact";
             interactionText.enabled = true;
@@ -76,6 +84,14 @@ public class Interact : MonoBehaviour
             UIManager.Instance.UpdateContainerUI(containerInventory.items); //Update the UI that show the inventory of the gameObject
             gameobjectText.text = interactableObject.gameObject.name; //Show the name of what we are looting
             gameobjectText.enabled = true;
+        }
+        // If the object has a dialogue
+        else if (interactableObject != null && dialogueHolder != null)
+        {
+            // Trigger dialogue UI update here
+            DialogueManager.Instance.StartDialogue(dialogueHolder.NPCDialogue);
+            // You might want to handle other interactions like disabling player movement, etc.
+            interactionText.enabled = false;
         }
         else
         {
