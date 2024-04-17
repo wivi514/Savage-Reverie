@@ -137,7 +137,7 @@ public class InputManager : MonoBehaviour
 
     private void ScrollInput(InputAction.CallbackContext ctx)
     {
-        float scroll = ctx.ReadValue<Vector2>().y; // Read the scroll value
+        float scroll = ctx.ReadValue<float>(); // Read the scroll value
         UIManager.Instance.SelectItemByScroll(scroll); // Call a method to handle the selection
     }
 }

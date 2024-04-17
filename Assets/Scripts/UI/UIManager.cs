@@ -11,9 +11,12 @@ public class UIManager : MonoBehaviour
 
     public List<PickableObject> items; // This should hold the items in your inventory
     public Inventory playerInventory; // Reference to the player's inventory component
+    public List<PickableObject> containerItems; // This holds the items in the container inventory
 
     public Transform itemsContainer; // Assign the 'Item list content' Transform here
 
+    public Color defaultColor = Color.white; // Default color for non-selected items
+    public Color selectedColor = new Color(1f, 0.51f, 0f); // Orange color for selected items
 
     private int selectedItemIndex = 0;
 
@@ -30,15 +33,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateContainerUI(string[] itemNames)
+    public void UpdateContainerUI(List<PickableObject> items)
     {
-        ClearContainerUI(); // Clear previous UI elements
-        foreach (string itemName in itemNames)
+        ClearContainerUI();
+        containerItems = items;
+        foreach (var item in containerItems)
         {
             GameObject itemUI = Instantiate(uiPanelPrefab, contentPanel);
-            // Ensure the prefab instantiated is the item entry prefab, not the inventory panel itself
-            itemUI.GetComponentInChildren<Text>().text = itemName;
+            Text itemText = itemUI.GetComponentInChildren<Text>();
+            itemText.text = item.objectName; 
         }
+        // Make sure the first item is selected by default
+        selectedItemIndex = 0;
+        HighlightSelectedItem();
     }
 
     public void ClearContainerUI()
@@ -51,37 +58,31 @@ public class UIManager : MonoBehaviour
 
     public void SelectItemByScroll(float scrollAmount)
     {
-        if (scrollAmount > 0) selectedItemIndex++;
-        else if (scrollAmount < 0) selectedItemIndex--;
+        if (containerItems == null || containerItems.Count == 0) return;
 
-        // Clamp the index to the bounds of your item list
-        selectedItemIndex = Mathf.Clamp(selectedItemIndex, 0, items.Count - 1);
+        if (scrollAmount < 0) selectedItemIndex = Mathf.Min(selectedItemIndex + 1, containerItems.Count - 1);
+        else if (scrollAmount > 0) selectedItemIndex = Mathf.Max(selectedItemIndex - 1, 0);
 
         HighlightSelectedItem();
     }
 
     public void TakeSelectedItem()
     {
-        if (selectedItemIndex >= 0 && selectedItemIndex < items.Count)
+        if (selectedItemIndex >= 0 && selectedItemIndex < containerItems.Count)
         {
-            // Logic to remove the item from the inventory and add it to the player
-            // For example:
-            PickableObject itemToTake = items[selectedItemIndex];
+            PickableObject itemToTake = containerItems[selectedItemIndex];
             playerInventory.AddItem(itemToTake);
-            items.RemoveAt(selectedItemIndex);
-            //UpdateContainerUI(); // Refresh UI after taking an item
+            containerItems.RemoveAt(selectedItemIndex);
+            UpdateContainerUI(containerItems); 
         }
     }
 
     private void HighlightSelectedItem()
     {
-        // Update your UI to highlight the selected item
-        for (int i = 0; i < items.Count; i++)
+        for (int i = 0; i < contentPanel.childCount; i++)
         {
-            Transform itemTransform = itemsContainer.GetChild(i);
-            Image background = itemTransform.GetComponent<Image>();
-            if (i == selectedItemIndex) background.color = Color.yellow; // Highlight color
-            else background.color = Color.clear; // Normal color
+            Text itemText = contentPanel.GetChild(i).GetComponentInChildren<Text>();
+            itemText.color = i == selectedItemIndex ? selectedColor : defaultColor;
         }
     }
 }

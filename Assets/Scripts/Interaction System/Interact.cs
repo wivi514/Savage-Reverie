@@ -72,8 +72,8 @@ public class Interact : MonoBehaviour
         // If the object is has an inventory
         else if (interactableObject != null && containerInventory != null)
         {
-            string[] itemNames = containerInventory.items.Select(item => item.objectName).ToArray(); // Take the name of the item in the inventory and create an array of string to show it in UI
-            UIManager.Instance.UpdateContainerUI(itemNames); //Update the UI that show the inventory of the gameObject
+            Inventory containerItems = interactableObject.GetComponent<Inventory>();
+            UIManager.Instance.UpdateContainerUI(containerInventory.items); //Update the UI that show the inventory of the gameObject
             gameobjectText.text = interactableObject.gameObject.name; //Show the name of what we are looting
             gameobjectText.enabled = true;
         }
