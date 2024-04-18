@@ -68,8 +68,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.dt.app-ui": {
-      "version": "1.0.6",
-      "depth": 1,
+      "version": "1.0.4",
+      "depth": 2,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.androidjni": "1.0.0",
@@ -156,19 +156,6 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.muse.behavior": {
-      "version": "0.6.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.dt.app-ui": "1.0.6",
-        "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.ai": "1.0.0",
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.muse.common": {

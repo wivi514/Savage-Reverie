@@ -16,19 +16,19 @@ MonoBehaviour:
   - id: Test-ID
     characterName: Bob
     dialogueLines:
-    - a
+    - Hello
     - b
     - c
     responses:
-    - Text: a
-      OnSelect:
+    - text: Hi
+      onSelect:
         m_PersistentCalls:
           m_Calls: []
-    - Text: b
-      OnSelect:
+    - text: Good Day
+      onSelect:
         m_PersistentCalls:
           m_Calls: []
-    - Text: c
-      OnSelect:
+    - text: Lorem Ipsum
+      onSelect:
         m_PersistentCalls:
           m_Calls: []

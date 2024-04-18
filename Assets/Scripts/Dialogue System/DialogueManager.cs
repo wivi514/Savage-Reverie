@@ -11,6 +11,9 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public Transform responseContainer;
     public GameObject responsePrefab;
+    public GameObject dialogueBackgroundPanel;
+
+    private List<DialogueOption> responses;
 
     public Color defaultResponseColor = Color.white;
     public Color selectedResponseColor = new Color(1f, 0.51f, 0f);
@@ -37,7 +40,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueScriptableObject.dialogues.Count > 0)
         {
+            dialogueBackgroundPanel.SetActive(true);
             currentDialogue = dialogueScriptableObject.dialogues[0];
+            responses = currentDialogue.responses;
             dialogueText.text = currentDialogue.dialogueLines[0]; // Show the first line.
             PopulateResponses(currentDialogue.responses); // Show the responses.
             dialoguePanel.SetActive(true);
@@ -54,24 +59,64 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < responses.Count; i++)
         {
             GameObject responseObj = Instantiate(responsePrefab, responseContainer);
-            TMP_Text responseText = responseObj.GetComponentInChildren<TMP_Text>();
-            responseText.text = responses[i].text;
-            responseText.color = (i == selectedResponseIndex) ? selectedResponseColor : defaultResponseColor;
+            Text responseText = responseObj.GetComponentInChildren<Text>(); // Note the change here from TMP_Text to Text
+            if (responseText != null)
+            {
+                responseText.text = responses[i].text;
+                responseText.color = (i == selectedResponseIndex) ? selectedResponseColor : defaultResponseColor;
+            }
+            else
+            {
+                Debug.LogError("Text component not found on instantiated responseObj.");
+            }
         }
     }
 
-    public void ChangeResponseSelection(int direction)
+
+    public void ChangeResponseSelection(float direction)
     {
-        selectedResponseIndex += direction;
-        selectedResponseIndex = Mathf.Clamp(selectedResponseIndex, 0, currentDialogue.responses.Count - 1); // Use 'Count'
+        if (direction < 0) selectedResponseIndex = Mathf.Min(selectedResponseIndex + 1, currentDialogue.responses.Count - 1);
+        else if (direction > 0) selectedResponseIndex = Mathf.Max(selectedResponseIndex - 1, 0);
         UpdateResponseColors();
     }
 
     void UpdateResponseColors()
     {
+        if (responseContainer == null)
+        {
+            Debug.LogError("responseContainer is null.");
+            return;
+        }
+
+        if (responses == null)
+        {
+            Debug.LogError("responses list is null.");
+            return;
+        }
+
         for (int i = 0; i < responseContainer.childCount; i++)
         {
-            TMP_Text responseText = responseContainer.GetChild(i).GetComponentInChildren<TMP_Text>();
+            if (i >= responses.Count)
+            {
+                Debug.LogError($"No response available for child index {i}.");
+                continue;
+            }
+
+            Transform responseTransform = responseContainer.GetChild(i);
+            if (responseTransform == null)
+            {
+                Debug.LogError($"Failed to get child at index {i} from responseContainer.");
+                continue;
+            }
+
+            Text responseText = responseTransform.GetComponentInChildren<Text>();
+            if (responseText == null)
+            {
+                Debug.LogError("Text component not found on response object.");
+                continue;
+            }
+
+            // Use the existing response list to get the color for the selected response
             responseText.color = (i == selectedResponseIndex) ? selectedResponseColor : defaultResponseColor;
         }
     }
@@ -82,5 +127,13 @@ public class DialogueManager : MonoBehaviour
         selectedResponse.onSelect.Invoke();
     }
 
-    // ... Other methods as needed ...
+    public void ClearContainerUI()
+    {
+        foreach (Transform child in responseContainer)
+        {
+            Destroy(child.gameObject);
+            dialogueText.text = " ";
+            dialogueBackgroundPanel.SetActive(false);
+        }
+    }
 }

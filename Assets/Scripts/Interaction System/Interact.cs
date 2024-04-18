@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     public float interactionRange = 3f;
     private TMP_Text interactionText;
     private TMP_Text gameobjectText;
+    private TMP_Text NPCNameText;
     private RaycastHit previousHit;
     private bool hasPreviousHit = false;
 
@@ -17,8 +18,10 @@ public class Interact : MonoBehaviour
     {
         interactionText = GameObject.Find("Interaction Text").GetComponent<TMP_Text>();
         gameobjectText = GameObject.Find("GameObject Text").GetComponent<TMP_Text>();
+        NPCNameText = GameObject.Find("NPC Name Text").GetComponent<TMP_Text>();
         interactionText.enabled = false;
         gameobjectText.enabled = false;
+        NPCNameText.enabled = false;
     }
 
     void Update()
@@ -91,6 +94,8 @@ public class Interact : MonoBehaviour
             // Trigger dialogue UI update here
             DialogueManager.Instance.StartDialogue(dialogueHolder.NPCDialogue);
             // You might want to handle other interactions like disabling player movement, etc.
+            NPCNameText.text = interactableObject.gameObject.name; //Show the name of who we are talking to
+            NPCNameText.enabled = true;
             interactionText.enabled = false;
         }
         else
@@ -103,7 +108,9 @@ public class Interact : MonoBehaviour
     {
         interactionText.enabled = false;
         gameobjectText.enabled = false;
+        NPCNameText.enabled = false;
         if (UIManager.Instance) UIManager.Instance.ClearContainerUI(); // Make sure to clear container UI as well
+        if (DialogueManager.Instance) DialogueManager.Instance.ClearContainerUI(); // Make sure to clear container UI as well
         hasPreviousHit = false; // Reset this flag when UI is cleared
     }
 }

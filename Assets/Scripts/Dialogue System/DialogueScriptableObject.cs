@@ -19,8 +19,8 @@ public class DialogueScriptableObject : ScriptableObject
 public class Dialogue
 {
     public string id; // Unique identifier for the dialogue
-    public string characterName; // Name of the character speaking
-    public List<string> dialogueLines; // Lines of dialogue for the character
+    public string characterName; // Name of the NPC speaking
+    public List<string> dialogueLines; // Lines of dialogue for the NPC
     public List<DialogueOption> responses; // Possible player responses
 }
 

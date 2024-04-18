@@ -101,6 +101,7 @@ public class InputManager : MonoBehaviour
     {
         interact.TryInteract();
         UIManager.Instance.TakeSelectedItem(); // Call a method to handle item pickup
+        DialogueManager.Instance.ConfirmResponse();
     }
 
     //Make the player sprint when pressing the sprint input
@@ -139,5 +140,6 @@ public class InputManager : MonoBehaviour
     {
         float scroll = ctx.ReadValue<float>(); // Read the scroll value
         UIManager.Instance.SelectItemByScroll(scroll); // Call a method to handle the selection
+        DialogueManager.Instance.ChangeResponseSelection(scroll);
     }
 }
