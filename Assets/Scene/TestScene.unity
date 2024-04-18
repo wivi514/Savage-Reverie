@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2259.2815, g: 2399.8167, b: 3496.063, a: 1}
+  m_IndirectSpecularColor: {r: 2259.9163, g: 2400.2073, b: 3496.2153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1214,6 +1214,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9fb2ce2b16c2884e8e2cc3d94fed839, type: 2}
   - {fileID: 11400000, guid: b9fb2ce2b16c2884e8e2cc3d94fed839, type: 2}
   - {fileID: 11400000, guid: b9fb2ce2b16c2884e8e2cc3d94fed839, type: 2}
+  inventoryItems: []
 --- !u!114 &327754468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,6 +1325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  inventoryItems: []
 --- !u!1 &379856055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,6 +1881,11 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 597f3f282b42fab43adce2b42217cedf, type: 2}
   - {fileID: 11400000, guid: b9fb2ce2b16c2884e8e2cc3d94fed839, type: 2}
+  - {fileID: 11400000, guid: 597f3f282b42fab43adce2b42217cedf, type: 2}
+  - {fileID: 11400000, guid: 597f3f282b42fab43adce2b42217cedf, type: 2}
+  - {fileID: 11400000, guid: d7530dab405fefe40bdbc031294320a3, type: 2}
+  - {fileID: 11400000, guid: 597f3f282b42fab43adce2b42217cedf, type: 2}
+  inventoryItems: []
 --- !u!114 &525577164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3513,7 +3520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31225ff480da1c4597fe68adda7e370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableObject: {fileID: 11400000, guid: b9fb2ce2b16c2884e8e2cc3d94fed839, type: 2}
+  scriptableObject: {fileID: 11400000, guid: c253a017a065bbf47b752b9b92f4e3c0, type: 2}
 --- !u!1 &1375121843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,6 +5619,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3801596397942333150, guid: be75ce3557a519d4391c66b542f5e866,
+        type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 362836957}
     - target: {fileID: 4787066102784952500, guid: be75ce3557a519d4391c66b542f5e866,
         type: 3}
       propertyPath: playerUi
@@ -5621,6 +5633,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Menu UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025023196518320474, guid: be75ce3557a519d4391c66b542f5e866,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779719536631567856, guid: be75ce3557a519d4391c66b542f5e866,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936735758317949504, guid: be75ce3557a519d4391c66b542f5e866,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5692,11 +5719,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5336535595881045901, guid: 50ffcb73d33a04c41978538d83c46f62,
         type: 3}
-      propertyPath: dialogueUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5336535595881045901, guid: 50ffcb73d33a04c41978538d83c46f62,
-        type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 109774979}
@@ -5705,12 +5727,6 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 2062729795}
-    - target: {fileID: 5336535595881045901, guid: 50ffcb73d33a04c41978538d83c46f62,
-        type: 3}
-      propertyPath: responsePrefab
-      value: 
-      objectReference: {fileID: 3141760840241457228, guid: 1df1ccbc77490e740b6d7778b444a506,
-        type: 3}
     - target: {fileID: 5336535595881045901, guid: 50ffcb73d33a04c41978538d83c46f62,
         type: 3}
       propertyPath: responseContainer

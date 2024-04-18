@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fd95eee159f35b40ab81ae1e1af014d, type: 3}
-  m_Name: Test Pickable Object
+  m_Name: Revolver 1
   m_EditorClassIdentifier: 
-  objectName: Test Pickable Object
-  description: Test
-  type: 3
-  uiArtwork: {fileID: 21300000, guid: db6accf040ebd014c847afef665af678, type: 3}
-  weight: 1
-  value: 1
-  canStack: 1
-  attackSpeed: 0
-  damage: 0
-  weapon: 0
-  weaponCategory: 0
+  objectName: Revolver
+  description: 
+  type: 0
+  uiArtwork: {fileID: 21300000, guid: 1a305d8aad65d9d4ea25c6c9462af11c, type: 3}
+  weight: 2
+  value: 0
+  canStack: 0
+  attackSpeed: 25
+  damage: 15
+  weapon: 1
+  weaponCategory: 2

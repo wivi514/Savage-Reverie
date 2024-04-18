@@ -66,9 +66,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca764c42447f7e42814f82d8dd9107d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 0}
+  dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
-  optionContainer: {fileID: 0}
-  optionPrefab: {fileID: 0}
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 1, g: 0.50980395, b: 0, a: 1}
+  responseContainer: {fileID: 0}
+  responsePrefab: {fileID: 3141760840241457228, guid: 1df1ccbc77490e740b6d7778b444a506,
+    type: 3}
+  dialogueBackgroundPanel: {fileID: 0}
+  defaultResponseColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedResponseColor: {r: 1, g: 0.51, b: 0, a: 1}
