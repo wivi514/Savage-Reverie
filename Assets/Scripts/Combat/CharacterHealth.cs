@@ -4,10 +4,12 @@ using UnityEngine.AI;
 public class CharacterHealth : MonoBehaviour
 {
     public CharacterSheet characterSheet;
+    public bool isAlive;
 
     private void Start()
     {
         characterSheet.currentHealth = characterSheet.maxHealth; // Will need to change later if we ever add save game
+        isAlive = true;
     }
 
     public void ApplyDamage(float damage)
@@ -27,6 +29,7 @@ public class CharacterHealth : MonoBehaviour
                 //Disable Ai component to let it fall on the ground
                 GetComponent<AiNavigationScript>().enabled = false;
                 GetComponent<NavMeshAgent>().enabled = false;
+                isAlive = false;
             }
         }
     }

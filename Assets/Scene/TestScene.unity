@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2298.4104, g: 2499.1702, b: 3789.3677, a: 1}
+  m_IndirectSpecularColor: {r: 2259.2815, g: 2399.8167, b: 3496.063, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1046,9 +1046,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCapsule: {fileID: 515990896}
+  weapon: {fileID: 11400000, guid: 597f3f282b42fab43adce2b42217cedf, type: 2}
   bulletPrefab: {fileID: 7602236011683674249, guid: 66e062216190b0b4f9daf0dbc0965638,
     type: 3}
-  weaponFirePoint: {fileID: 1136985378}
+  weaponFirePoint: {fileID: 1136985379}
+  damage: 0
+  speed: 0
   statePositions:
   - state: 1
     position: {fileID: 2055997383}
@@ -1166,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSheet: {fileID: 11400000, guid: f024254260393c745bc5357c4bde6fa9, type: 2}
+  isAlive: 0
 --- !u!54 &327754466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1733,6 +1737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSheet: {fileID: 11400000, guid: 5d4531203cccd154bbe776358c73b5eb, type: 2}
+  isAlive: 0
 --- !u!114 &515990902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5044,7 +5049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2062729796
 RectTransform:
   m_ObjectHideFlags: 0

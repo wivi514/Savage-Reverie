@@ -294,6 +294,7 @@ MonoBehaviour:
   damage: 20
   speed: 0
   maxDistance: 30
+  attacker: {fileID: 0}
 --- !u!1 &8686873294389615938
 GameObject:
   m_ObjectHideFlags: 0

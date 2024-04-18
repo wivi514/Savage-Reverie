@@ -12,13 +12,20 @@ public class AiNavigationScript : MonoBehaviour
     private AIState currentState;
     private int currentIndex = 0;
     private bool isIdle = false;
-    private string parentName; //To delete
+    private bool isShooting = false;
+    private string parentName; //To delete only used for debug.
 
     private GameObject target;
 
-    [Header("AI Attack Player")]
+    public PickableObject weapon;
+
+    [Header("Weapon Specifics")]
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject weaponFirePoint;
+    [SerializeField] Transform weaponFirePoint;
+
+    [Header("Weapon Stats")]
+    public int damage;
+    public int speed;
 
     [System.Serializable]
     public class AIStatePosition
@@ -46,6 +53,8 @@ public class AiNavigationScript : MonoBehaviour
         parentName = transform.parent.name; // To delete
         currentState = statePositions[currentIndex].state;
         agent.destination = statePositions[currentIndex].position.position;
+        damage = weapon.damage;
+        speed = weapon.attackSpeed;
     }
 
     void Update()
@@ -106,25 +115,33 @@ public class AiNavigationScript : MonoBehaviour
         Debug.Log(parentName + ": Waited for " + waitTime + " seconds.");
 
         //Change AIState after waiting
-        SetNextState();
-        isIdle = false;
+        if(currentState != AIState.Attack)
+        {
+            SetNextState();
+            isIdle = false;
+        }
     }
 
     public void TriggerAttackState(GameObject attacker)
     {
         currentState = AIState.Attack;
         target = attacker;
-        // Transition to attack logic, e.g., move towards attacker
     }
 
     void AttackTarget()
     {
-        if (target != null)
+        agent.SetDestination(transform.position);
+        transform.LookAt(target.transform);
+
+        if (!isShooting)
         {
             Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
             GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.transform.position, Quaternion.LookRotation(directionToTarget));
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            bulletComponent.damage = this.damage;
+            bulletComponent.speed = this.speed;
             bulletComponent.SetTarget(directionToTarget);
+            StartCoroutine(ShootAtPlayer());
         }
     }
 
@@ -132,5 +149,16 @@ public class AiNavigationScript : MonoBehaviour
     {
         currentState = AIState.Chase;
         agent.destination = chase.transform.position;
+    }
+
+    private IEnumerator ShootAtPlayer()
+    {
+        isShooting = true;
+
+        // Wait for a random amount of time between shots
+        float waitTime = Random.Range(0.5f, 1.5f);
+            yield return new WaitForSeconds(waitTime);
+       
+        isShooting = false;
     }
 }

@@ -73,30 +73,48 @@ public class Interact : MonoBehaviour
         Interactable interactableObject = hit.collider.GetComponent<Interactable>();
         Inventory containerInventory = hit.collider.GetComponent<Inventory>();
         DialogueHolder dialogueHolder = hit.collider.GetComponent<DialogueHolder>();
-        if (interactableObject != null && containerInventory == null && dialogueHolder == null)
+        CharacterHealth characterHealth = hit.collider.GetComponent<CharacterHealth>();
+        if (characterHealth == null)
         {
-            interactionText.text = "E) Interact";
-            interactionText.enabled = true;
-            gameobjectText.text = interactableObject.gameObject.name;
-            gameobjectText.enabled = true;
+            if (interactableObject != null && containerInventory == null && dialogueHolder == null)
+            {
+                interactionText.text = "E) Interact";
+                interactionText.enabled = true;
+                gameobjectText.text = interactableObject.gameObject.name;
+                gameobjectText.enabled = true;
+            }
+            // If the object is has an inventory
+            else if (interactableObject != null && containerInventory != null)
+            {
+                Inventory containerItems = interactableObject.GetComponent<Inventory>();
+                UIManager.Instance.UpdateContainerUI(containerInventory.items); //Update the UI that show the inventory of the gameObject
+                gameobjectText.text = interactableObject.gameObject.name; //Show the name of what we are looting
+                gameobjectText.enabled = true;
+            }
+            // If the object has a dialogue
+            else if (interactableObject != null && dialogueHolder != null)
+            {
+                // Trigger dialogue UI update here
+                DialogueManager.Instance.StartDialogue(dialogueHolder.NPCDialogue);
+                // You might want to handle other interactions like disabling player movement, etc.
+                NPCNameText.text = interactableObject.gameObject.name; //Show the name of who we are talking to
+                NPCNameText.enabled = true;
+                interactionText.enabled = false;
+            }
         }
-        // If the object is has an inventory
-        else if (interactableObject != null && containerInventory != null)
+        else if (characterHealth != null)
         {
-            Inventory containerItems = interactableObject.GetComponent<Inventory>();
-            UIManager.Instance.UpdateContainerUI(containerInventory.items); //Update the UI that show the inventory of the gameObject
-            gameobjectText.text = interactableObject.gameObject.name; //Show the name of what we are looting
-            gameobjectText.enabled = true;
-        }
-        // If the object has a dialogue
-        else if (interactableObject != null && dialogueHolder != null)
-        {
-            // Trigger dialogue UI update here
-            DialogueManager.Instance.StartDialogue(dialogueHolder.NPCDialogue);
-            // You might want to handle other interactions like disabling player movement, etc.
-            NPCNameText.text = interactableObject.gameObject.name; //Show the name of who we are talking to
-            NPCNameText.enabled = true;
-            interactionText.enabled = false;
+            if (characterHealth.isAlive == false && containerInventory != null)
+            {
+                Inventory containerItems = interactableObject.GetComponent<Inventory>();
+                UIManager.Instance.UpdateContainerUI(containerInventory.items); //Update the UI that show the inventory of the gameObject
+                gameobjectText.text = interactableObject.gameObject.name; //Show the name of what we are looting
+                gameobjectText.enabled = true;
+            }
+            else if (characterHealth.isAlive == true)
+            {
+                return;
+            }
         }
         else
         {
