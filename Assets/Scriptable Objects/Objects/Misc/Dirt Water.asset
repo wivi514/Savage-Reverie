@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Dirt Water
   m_EditorClassIdentifier: 
   objectName: Dirt Water
-  description: 
-  uiArtwork: {fileID: 0}
-  type: 0
+  description: Dirt Water
+  uiArtwork: {fileID: 21300000, guid: 9956fa9896c1bfa4e9ba1b6c1365f9a7, type: 3}
+  type: 3
   weight: 0
   value: 1
-  canStack: 0
+  canStack: 1
   PickableObjectPrefab: {fileID: 0}
   attackSpeed: 0
   damage: 0

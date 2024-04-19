@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Tequila
   m_EditorClassIdentifier: 
   objectName: Tequila
-  description: 
-  uiArtwork: {fileID: 0}
-  type: 0
+  description: Tequila
+  uiArtwork: {fileID: 21300000, guid: 39bbcadc31215ca47a216b1c30fda17b, type: 3}
+  type: 3
   weight: 0
   value: 10
-  canStack: 0
+  canStack: 1
   PickableObjectPrefab: {fileID: 0}
   attackSpeed: 0
   damage: 0

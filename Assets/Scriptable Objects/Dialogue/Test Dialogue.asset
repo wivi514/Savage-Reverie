@@ -20,15 +20,15 @@ MonoBehaviour:
     - b
     - c
     responses:
-    - text: Hi
+    - text: Choix 1
       onSelect:
         m_PersistentCalls:
           m_Calls: []
-    - text: Good Day
+    - text: Choix 2
       onSelect:
         m_PersistentCalls:
           m_Calls: []
-    - text: Lorem Ipsum
+    - text: Choix 3
       onSelect:
         m_PersistentCalls:
           m_Calls: []

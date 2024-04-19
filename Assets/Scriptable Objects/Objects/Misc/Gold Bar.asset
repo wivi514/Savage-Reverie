@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Gold Bar
   m_EditorClassIdentifier: 
   objectName: Gold Bar
-  description: 
-  uiArtwork: {fileID: 0}
-  type: 0
+  description: Gold Bar
+  uiArtwork: {fileID: 21300000, guid: 2e22c69617e32494baa22cd7f98f1a47, type: 3}
+  type: 3
   weight: 0
   value: 200
-  canStack: 0
+  canStack: 1
   PickableObjectPrefab: {fileID: 0}
   attackSpeed: 0
   damage: 0

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Whisky
   m_EditorClassIdentifier: 
   objectName: Whisky
-  description: 
-  uiArtwork: {fileID: 0}
-  type: 0
+  description: Whisky
+  uiArtwork: {fileID: 21300000, guid: bff8112e410b487448e0d2571230ed32, type: 3}
+  type: 3
   weight: 0
   value: 10
-  canStack: 0
+  canStack: 1
   PickableObjectPrefab: {fileID: 0}
   attackSpeed: 0
   damage: 0

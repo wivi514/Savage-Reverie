@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd95eee159f35b40ab81ae1e1af014d, type: 3}
   m_Name: Beer
   m_EditorClassIdentifier: 
-  objectName: 
-  description: 
-  uiArtwork: {fileID: 0}
-  type: 0
+  objectName: Beer
+  description: Beer
+  uiArtwork: {fileID: 21300000, guid: 574b961043e626042b4d0084a2af40cc, type: 3}
+  type: 3
   weight: 0
-  value: 0
-  canStack: 0
+  value: 2
+  canStack: 1
   PickableObjectPrefab: {fileID: 0}
   attackSpeed: 0
   damage: 0
