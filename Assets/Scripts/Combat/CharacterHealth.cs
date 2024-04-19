@@ -33,4 +33,13 @@ public class CharacterHealth : MonoBehaviour
             }
         }
     }
+
+    public void HealHealth(int health)
+    {
+        characterSheet.currentHealth += health;
+        if (characterSheet.currentHealth >= characterSheet.maxHealth)
+        {
+            characterSheet.currentHealth = characterSheet.maxHealth;
+        }
+    }
 }

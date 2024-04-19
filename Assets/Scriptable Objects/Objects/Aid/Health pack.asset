@@ -23,4 +23,4 @@ MonoBehaviour:
   damage: 0
   weapon: 0
   weaponCategory: 0
-  health: 0
+  health: 30

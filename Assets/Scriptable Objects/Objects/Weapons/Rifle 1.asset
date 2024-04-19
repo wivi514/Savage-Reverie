@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Rifle
   description: Rifle
-  type: 0
   uiArtwork: {fileID: 21300000, guid: 0041261dd942b8d4f9d61b4a47e64966, type: 3}
+  type: 0
   weight: 5
   value: 100
   canStack: 0
+  PickableObjectPrefab: {fileID: 1191095969629160, guid: 6f44e8afa9badf3499a94d8c345d1935,
+    type: 3}
   attackSpeed: 30
   damage: 20
   weapon: 1
   weaponCategory: 2
+  health: 0

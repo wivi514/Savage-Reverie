@@ -14,6 +14,9 @@ public class PickableObject : ScriptableObject
     public int value; //Insert monetary value of the object
     public bool canStack; //If you can stack the object in the inventory
 
+    [Header("Prefab")]
+    public GameObject PickableObjectPrefab;
+
     //Only use these settings if the "ObjectType" is set to Weapon
     [Header("Weapon Settings")]
     public int attackSpeed;

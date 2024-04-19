@@ -53,4 +53,19 @@ public class EquippedWeapon : MonoBehaviour
             bullet.attacker = attacker; // Set the attacker
         }
     }
+
+    public void EquipWeapon(PickableObject newWeapon)
+    {
+        // Set the new weapon
+        weapon = newWeapon;
+
+        // Update the weapon specifics if needed
+        damage = newWeapon.damage;
+        Debug.Log("Damage = " + damage);
+        speed = newWeapon.attackSpeed;
+        Debug.Log("Speed = " + speed);
+
+        // You might want to update the visual of the weapon or any other weapon-specific logic here
+        // For example, changing the weapon model that the player is holding
+    }
 }
