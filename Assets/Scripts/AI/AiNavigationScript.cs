@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Interactable))]
+[RequireComponent(typeof(Inventory))]
+[RequireComponent(typeof(CharacterHealth))]
 
 public class AiNavigationScript : MonoBehaviour
 {

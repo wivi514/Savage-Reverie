@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd95eee159f35b40ab81ae1e1af014d, type: 3}
+  m_Name: Beer
+  m_EditorClassIdentifier: 
+  objectName: 
+  description: 
+  uiArtwork: {fileID: 0}
+  type: 0
+  weight: 0
+  value: 0
+  canStack: 0
+  PickableObjectPrefab: {fileID: 0}
+  attackSpeed: 0
+  damage: 0
+  weapon: 0
+  weaponCategory: 0
+  health: 0

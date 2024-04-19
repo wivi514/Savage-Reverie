@@ -291,9 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078b868577af0db4aada1ba2e1a0be1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 20
   speed: 0
-  maxDistance: 100
+  maxDistance: 30
   attacker: {fileID: 0}
 --- !u!1 &8686873294389615938
 GameObject:

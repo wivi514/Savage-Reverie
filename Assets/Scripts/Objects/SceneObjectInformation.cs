@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Interactable))]
 public class SceneObjectInformation : MonoBehaviour
 {
     public PickableObject scriptableObject;
