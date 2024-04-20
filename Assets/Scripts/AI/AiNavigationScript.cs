@@ -143,6 +143,7 @@ public class AiNavigationScript : MonoBehaviour
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
             bulletComponent.damage = this.damage;
             bulletComponent.speed = this.speed;
+            bulletComponent.attacker = this.gameObject;
             bulletComponent.SetTarget(directionToTarget);
             StartCoroutine(ShootAtPlayer());
         }

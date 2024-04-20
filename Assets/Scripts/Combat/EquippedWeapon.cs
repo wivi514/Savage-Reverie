@@ -20,8 +20,6 @@ public class EquippedWeapon : MonoBehaviour
     private void Start()
     {
         //Need to add modifier depending on stats in character sheets
-        damage = weapon.damage;
-        speed = weapon.attackSpeed;
         attacker = this.gameObject;
     }
 
@@ -36,8 +34,8 @@ public class EquippedWeapon : MonoBehaviour
             Bullet bullet = bulletObject.GetComponent<Bullet>();
 
             // Assign weapon stats to the bullet
-            bullet.damage = this.damage; // Set bullet damage from weapon
-            bullet.speed = this.speed; // Set bullet speed from weapon
+            bullet.damage = weapon.damage; // Set bullet damage from weapon
+            bullet.speed = weapon.attackSpeed; // Set bullet speed from weapon
             bullet.attacker = attacker;// set the attacker so the AI know who shot it
 
             bullet.SetTarget(hit.point); // Pass the hit point to the bullet

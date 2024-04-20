@@ -16,7 +16,9 @@ MonoBehaviour:
   - id: Test-ID
     characterName: Bob
     dialogueLines:
-    - Hello
+    - Well, darlin', if you're fixin' for a spectacle, just step outside and cast
+      your eyes to the right. You'll see a plume of smoke dancin' on the horizon,
+      courtesy of them bandits causin' a ruckus with that train.
     - b
     - c
     responses:
