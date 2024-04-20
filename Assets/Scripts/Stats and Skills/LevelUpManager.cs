@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class LevelUpManager : MonoBehaviour
 {
@@ -7,8 +8,23 @@ public class LevelUpManager : MonoBehaviour
     private Dictionary<string, float> initialSkillLevels;
     private int availableSkillPoints;
 
+    public TMP_Text gunsStatText;
+    public TMP_Text meleeStatText;
+    public TMP_Text explosivesStatText;
+    public TMP_Text medicineStatText;
+    public TMP_Text repairStatText;
+    public TMP_Text scienceStatText;
+    public TMP_Text speechStatText;
+    public TMP_Text survivalStatText;
+    public TMP_Text sneakStatText;
+    public TMP_Text availableSkillPointText;
+    public TMP_Text levelText;
+
+    public GameObject playerUI;
+
     void Start()
     {
+        playerUI.SetActive(false);
         // Initialize with some skill points for demonstration purposes
         availableSkillPoints = 15;
 
@@ -18,6 +34,10 @@ public class LevelUpManager : MonoBehaviour
         {
             initialSkillLevels[skill.skillName] = skill.skillLevel;
         }
+        SetAllSkillsToLevelFifteen();
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     // Call this method when the player presses the button to increase a skill
@@ -31,6 +51,8 @@ public class LevelUpManager : MonoBehaviour
             {
                 skill.skillLevel++;
                 availableSkillPoints--;
+                RefreshUI();
+                ConfirmChoice();
                 break;
             }
         }
@@ -45,6 +67,7 @@ public class LevelUpManager : MonoBehaviour
             {
                 skill.skillLevel--;
                 availableSkillPoints++;
+                RefreshUI();
                 break;
             }
         }
@@ -56,6 +79,7 @@ public class LevelUpManager : MonoBehaviour
         foreach (var skill in initialSkillLevels)
         {
             SetSkillLevel(skill.Key, skill.Value);
+            RefreshUI();
         }
         // Reset available skill points based on level, etc.
         // availableSkillPoints = CalculateAvailablePoints();
@@ -69,6 +93,7 @@ public class LevelUpManager : MonoBehaviour
             if (skill.skillName == skillName)
             {
                 skill.skillLevel = level;
+                RefreshUI();
                 break;
             }
         }
@@ -78,5 +103,43 @@ public class LevelUpManager : MonoBehaviour
     public void AddSkillPoints(int points)
     {
         availableSkillPoints += points;
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
+        gunsStatText.text = characterSheet.GetSkillLevel("Guns").ToString();
+        meleeStatText.text = characterSheet.GetSkillLevel("Melee Weapons").ToString();
+        explosivesStatText.text = characterSheet.GetSkillLevel("Explosives").ToString();
+        medicineStatText.text = characterSheet.GetSkillLevel("Medicine").ToString();
+        repairStatText.text = characterSheet.GetSkillLevel("Repair").ToString();
+        scienceStatText.text = characterSheet.GetSkillLevel("Science").ToString();
+        speechStatText.text = characterSheet.GetSkillLevel("Speech").ToString();
+        survivalStatText.text = characterSheet.GetSkillLevel("Survival").ToString();
+        sneakStatText.text = characterSheet.GetSkillLevel("Sneak").ToString();
+        availableSkillPointText.text = "Skill point left: " + availableSkillPoints.ToString();
+    }
+
+    public void ConfirmChoice()
+    {
+        Debug.Log("ConfirmChoice method called. Available skill points: " + availableSkillPoints);
+        if (availableSkillPoints == 0)
+        {
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playerUI.SetActive(true);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void SetAllSkillsToLevelFifteen()
+    {
+        foreach (Skill skill in characterSheet.skills)
+        {
+            skill.skillLevel = 15;
+        }
+
+        RefreshUI();
     }
 }

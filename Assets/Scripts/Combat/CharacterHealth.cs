@@ -8,28 +8,52 @@ public class CharacterHealth : MonoBehaviour
 
     private void Start()
     {
-        characterSheet.currentHealth = characterSheet.maxHealth; // Will need to change later if we ever add save game
+        characterSheet.currentHealth = characterSheet.maxHealth;
         isAlive = true;
     }
 
-    public void ApplyDamage(float damage)
+    // Update the method to accept the attacker GameObject
+    public void ApplyDamage(float damage, GameObject attacker)
     {
         characterSheet.currentHealth -= (int)damage;
 
-        // Check for character death or any other threshold
-        if (characterSheet.currentHealth <= 0)
+        // If the character is still alive after taking damage, trigger the attack state
+        if (characterSheet.currentHealth > 0)
+        {
+            // Only non-Player characters should trigger an attack state
+            if (characterSheet.faction != Faction.Player)
+            {
+                var aiScript = GetComponent<AiNavigationScript>();
+                if (aiScript != null)
+                {
+                    aiScript.TriggerAttackState(attacker);
+                }
+            }
+        }
+        else
         {
             if (characterSheet.faction == Faction.Player)
             {
                 Time.timeScale = 0;
-                //Add something for game over screen
+                // Handle game over screen or player death here
             }
-            else if(characterSheet.faction != Faction.Player)
+            else
             {
-                //Disable Ai component to let it fall on the ground
-                GetComponent<AiNavigationScript>().enabled = false;
-                GetComponent<NavMeshAgent>().enabled = false;
+                // Disable AI and NavMeshAgent components, handle enemy death
+                var aiScript = GetComponent<AiNavigationScript>();
+                if (aiScript != null)
+                {
+                    aiScript.enabled = false;
+                }
+
+                var navAgent = GetComponent<NavMeshAgent>();
+                if (navAgent != null)
+                {
+                    navAgent.enabled = false;
+                }
+
                 isAlive = false;
+                // Handle any additional death logic here
             }
         }
     }
@@ -37,7 +61,7 @@ public class CharacterHealth : MonoBehaviour
     public void HealHealth(int health)
     {
         characterSheet.currentHealth += health;
-        if (characterSheet.currentHealth >= characterSheet.maxHealth)
+        if (characterSheet.currentHealth > characterSheet.maxHealth)
         {
             characterSheet.currentHealth = characterSheet.maxHealth;
         }

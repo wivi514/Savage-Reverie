@@ -21,7 +21,7 @@ MonoBehaviour:
   canStack: 0
   PickableObjectPrefab: {fileID: 1908759806999368, guid: 30ab74aad8385aa4198f18d1913a6bce,
     type: 3}
-  attackSpeed: 25
+  attackSpeed: 15
   damage: 15
   weapon: 1
   weaponCategory: 2

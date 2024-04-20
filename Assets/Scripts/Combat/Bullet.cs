@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage; // Damage the bullet does
-    public int speed; // Speed the bullet goes 
+    public int speed; // Speed the bullet goes
     private Vector3 startPosition;
     public float maxDistance = 100f; // Maximum travel distance before destruction
 
@@ -27,11 +27,11 @@ public class Bullet : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPosition) < 0.001f)
             {
-                Destroy(gameObject); // Destroy the bullet upon reaching the target or else it'll be stuck in the air
+                Destroy(gameObject); // Destroy the bullet upon reaching the target
             }
         }
-        float distance = Vector3.Distance(startPosition, transform.position);
-        if (distance > maxDistance)
+
+        if (Vector3.Distance(startPosition, transform.position) > maxDistance)
         {
             Destroy(gameObject); // Destroy the bullet if it exceeds the maximum distance
         }
@@ -39,20 +39,25 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if the object we hit has a component that links to a CharacterSheet
-        var character = other.GetComponent<CharacterHealth>();
-        AiNavigationScript aiNavigation = other.GetComponent<AiNavigationScript>();
-        if (character != null)
+        if (other.gameObject == attacker)
         {
-            character.ApplyDamage(damage);
-            if (aiNavigation != null)
-            {
-                Debug.Log("Triggering attack on " + other.name);
-                aiNavigation.TriggerAttackState(attacker);
-            }
+            Debug.Log("Bullet hit the attacker, no damage applied.");
+            Destroy(gameObject); // Destroy bullet, but do no damage
+            return;
         }
-        Destroy(gameObject); // Destroy bullet on hit
+
+        // Check if the object we hit has a component that links to a CharacterHealth
+        var characterHealth = other.GetComponent<CharacterHealth>();
+        if (characterHealth != null)
+        {
+            Debug.Log("Applying damage to " + other.name);
+            // Pass the attacker to the ApplyDamage method
+            characterHealth.ApplyDamage(damage, attacker);
+            Destroy(gameObject); // Destroy bullet on hit
+        }
     }
+
+
     public void SetTarget(Vector3 target)
     {
         targetPosition = target;

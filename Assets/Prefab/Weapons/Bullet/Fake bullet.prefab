@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: -339948491389835655}
   - component: {fileID: 8304402396224844510}
   m_Layer: 0
-  m_Name: 5_45x39mm_cartridge
+  m_Name: Fake bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,9 +246,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.013383312, y: 0.009166554, z: 0.059901666}
   m_Center: {x: 0.00055217487, y: 0.0009485595, z: 0.005167274}

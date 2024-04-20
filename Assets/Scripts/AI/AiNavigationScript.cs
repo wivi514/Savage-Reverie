@@ -18,6 +18,8 @@ public class AiNavigationScript : MonoBehaviour
     private bool isShooting = false;
     private string parentName; //To delete only used for debug.
 
+    private int maxDistance = 100;
+
     private GameObject target;
 
     public PickableObject weapon;
@@ -53,7 +55,6 @@ public class AiNavigationScript : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        parentName = transform.parent.name; // To delete
         currentState = statePositions[currentIndex].state;
         agent.destination = statePositions[currentIndex].position.position;
         damage = (int)weapon.damage;
@@ -65,7 +66,6 @@ public class AiNavigationScript : MonoBehaviour
         switch (currentState)
         {
             case AIState.Idle:
-                Debug.Log(parentName + ": Idle");
                 //Goes to the next State in the list after reaching it's destination and being idle from 2 to 10 seconds
                 if (!agent.pathPending && agent.remainingDistance < 0.1f)
                 {
@@ -78,7 +78,6 @@ public class AiNavigationScript : MonoBehaviour
                 }
                 break;
             case AIState.Patrol:
-                Debug.Log(parentName + ": Patrolling");
                 //Goes to the next State in the list after reaching it's destination
                 if (!agent.pathPending && agent.remainingDistance < 0.1f)
                 {
@@ -86,15 +85,21 @@ public class AiNavigationScript : MonoBehaviour
                 }
                 break;
             case AIState.Chase:
-                Debug.Log(parentName + ": Chasing");
                 agent.destination = playerCapsule.position;
                 break;
             case AIState.Attack:
-                AttackTarget();
-                Debug.Log(parentName + ": Attacking");
+                if (target != null) // Continuously check if the target is still valid
+                {
+                    AttackTarget();
+                    Debug.Log(": Attacking");
+                }
+                else
+                {
+                    SetNextState(); // If for some reason the target is null, transition to the next state
+                }
                 break;
             case AIState.Flee:
-                Debug.Log(parentName + ": Fleeing");
+                Debug.Log(": Fleeing");
                 break;
             default:
                 break;
@@ -115,7 +120,7 @@ public class AiNavigationScript : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         // Code to execute after waiting
-        Debug.Log(parentName + ": Waited for " + waitTime + " seconds.");
+        Debug.Log(": Waited for " + waitTime + " seconds.");
 
         //Change AIState after waiting
         if(currentState != AIState.Attack)
@@ -127,27 +132,80 @@ public class AiNavigationScript : MonoBehaviour
 
     public void TriggerAttackState(GameObject attacker)
     {
-        currentState = AIState.Attack;
-        target = attacker;
+        Debug.Log("Attempting to TriggerAttackState");
+
+        if (currentState != AIState.Attack) // Only trigger attack if not already attacking
+        {
+            Debug.Log("Attack state is not active. Setting state to Attack.");
+            currentState = AIState.Attack;
+            target = attacker;
+            StartAttack(); // Immediate reaction to state change
+        }
+        else
+        {
+            Debug.Log("Attack state is already active.");
+        }
     }
+
+
+    void StartAttack()
+    {
+        if (target != null && agent.isActiveAndEnabled && gameObject.activeInHierarchy)
+        {
+            if (agent.isOnNavMesh) // Ensure the agent is on the NavMesh
+            {
+                agent.isStopped = true; // Stop the agent from moving
+                AttackTarget();
+            }
+            else
+            {
+                Debug.LogWarning("Agent is not on NavMesh!");
+                // Attempt to place the agent on the NavMesh
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(transform.position, out hit, maxDistance, NavMesh.AllAreas))
+                {
+                    transform.position = hit.position;
+                    agent.Warp(hit.position); // Warp agent to position on the NavMesh
+                    agent.isStopped = true;
+                    AttackTarget();
+                }
+            }
+        }
+    }
+
 
     void AttackTarget()
     {
-        agent.SetDestination(transform.position);
-        transform.LookAt(target.transform);
+        Debug.Log("AttackTarget method called.");
 
         if (!isShooting)
         {
+            Debug.Log("AI is not currently shooting. Preparing to shoot.");
+            isShooting = true; // Set this early to prevent multiple shots in one frame
             Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
             GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.transform.position, Quaternion.LookRotation(directionToTarget));
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
+
+            if (bulletComponent == null)
+            {
+                Debug.LogError("Bullet component not found on the instantiated bullet object.");
+                return;
+            }
+
             bulletComponent.damage = this.damage;
             bulletComponent.speed = this.speed;
             bulletComponent.attacker = this.gameObject;
             bulletComponent.SetTarget(directionToTarget);
+
+            Debug.Log("Bullet instantiated and set up. Starting coroutine to manage shooting interval.");
             StartCoroutine(ShootAtPlayer());
         }
+        else
+        {
+            Debug.Log("AI is already shooting.");
+        }
     }
+
 
     void TriggerChaseState(GameObject chase)
     {
@@ -157,12 +215,9 @@ public class AiNavigationScript : MonoBehaviour
 
     private IEnumerator ShootAtPlayer()
     {
-        isShooting = true;
-
-        // Wait for a random amount of time between shots
-        float waitTime = Random.Range(0.5f, 1.5f);
-            yield return new WaitForSeconds(waitTime);
-       
+        Debug.Log("ShootAtPlayer coroutine started.");
+        yield return new WaitForSeconds(1f); // Simulate delay for shooting interval
         isShooting = false;
+        Debug.Log("AI can shoot again.");
     }
 }
