@@ -56,7 +56,7 @@ public class AiNavigationScript : MonoBehaviour
         parentName = transform.parent.name; // To delete
         currentState = statePositions[currentIndex].state;
         agent.destination = statePositions[currentIndex].position.position;
-        damage = weapon.damage;
+        damage = (int)weapon.damage;
         speed = weapon.attackSpeed;
     }
 

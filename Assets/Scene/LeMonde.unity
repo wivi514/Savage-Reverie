@@ -18076,6 +18076,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 260036652826687231, guid: 90b7111e42d3fc84697054687cfd4a32,
+        type: 3}
+      propertyPath: interactionRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1376843332215438825, guid: 90b7111e42d3fc84697054687cfd4a32,
         type: 3}
       propertyPath: barrelTransform
@@ -18140,11 +18145,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7506616608191410227, guid: 90b7111e42d3fc84697054687cfd4a32,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

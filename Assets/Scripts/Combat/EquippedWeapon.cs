@@ -7,8 +7,10 @@ public class EquippedWeapon : MonoBehaviour
     public PickableObject weapon;
 
     [Header("Weapon Specifics")]
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform barrelTransform;
+    [SerializeField] GameObject realBulletPrefab;
+    [SerializeField] Transform realBarrelTransform;
+    [SerializeField] GameObject fakebulletPrefab;
+    [SerializeField] Transform fakebarrelTransform;
 
     [Header("Weapon Stats")]
     public int damage;
@@ -27,28 +29,30 @@ public class EquippedWeapon : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-
-        if (Physics.Raycast(ray, out hit, 100f)) // Adjust range as needed
+        if(weapon.damage > 0)
         {
-            GameObject bulletObject = Instantiate(bulletPrefab, barrelTransform.position, Quaternion.LookRotation(barrelTransform.forward));
-            Bullet bullet = bulletObject.GetComponent<Bullet>();
+            if (Physics.Raycast(ray, out hit, 100f)) // Adjust range as needed
+            {
+                GameObject bulletObject = Instantiate(realBulletPrefab, realBarrelTransform.position, Quaternion.LookRotation(realBarrelTransform.forward));
+                Bullet bullet = bulletObject.GetComponent<Bullet>();
 
-            // Assign weapon stats to the bullet
-            bullet.damage = weapon.damage; // Set bullet damage from weapon
-            bullet.speed = weapon.attackSpeed; // Set bullet speed from weapon
-            bullet.attacker = attacker;// set the attacker so the AI know who shot it
+                // Assign weapon stats to the bullet
+                bullet.damage = weapon.damage * (1 + (int)characterSheet.GetSkillLevel("Guns")); // Set bullet damage from weapon
+                bullet.speed = weapon.attackSpeed; // Set bullet speed from weapon
+                bullet.attacker = attacker;// set the attacker so the AI know who shot it
 
-            bullet.SetTarget(hit.point); // Pass the hit point to the bullet
-        }
-        else
-        {
-            GameObject bulletObject = Instantiate(bulletPrefab, barrelTransform.position, Quaternion.LookRotation(barrelTransform.forward));
-            Bullet bullet = bulletObject.GetComponent<Bullet>();
+                bullet.SetTarget(hit.point); // Pass the hit point to the bullet
+            }
+            else
+            {
+                GameObject bulletObject = Instantiate(realBulletPrefab, realBarrelTransform.position, Quaternion.LookRotation(realBarrelTransform.forward));
+                Bullet bullet = bulletObject.GetComponent<Bullet>();
 
-            // Assign weapon stats to the bullet
-            bullet.damage = this.damage; // Set bullet damage from weapon
-            bullet.speed = this.speed; // Set bullet speed from weapon
-            bullet.attacker = attacker; // Set the attacker
+                // Assign weapon stats to the bullet
+                bullet.damage = this.damage; // Set bullet damage from weapon
+                bullet.speed = this.speed; // Set bullet speed from weapon
+                bullet.attacker = attacker; // Set the attacker
+            }
         }
     }
 
