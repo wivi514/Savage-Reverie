@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e96c3fbfbc6e93e43a23e9a07ef326d4, type: 3}
-  m_Name: Test Dialogue
+  m_Name: Barmaid
   m_EditorClassIdentifier: 
   dialogues:
   - id: Test-ID
-    characterName: Bob
+    characterName: Barmaid
     dialogueLines:
-    - Well, darlin', if you're fixin' for a spectacle, just step outside and cast
-      your eyes to the right. You'll see a plume of smoke dancin' on the horizon,
-      courtesy of them bandits causin' a ruckus with that train.
+    - If you are looking for some problem there are some bandits raiding a train
+      you just need to follow the smoke to see them
     - b
     - c
     responses:
-    - text: Choix 1
+    - text: I'll take care of them right away.
       onSelect:
         m_PersistentCalls:
           m_Calls: []
-    - text: Choix 2
+    - text: I don't want to risk my life for this.
       onSelect:
         m_PersistentCalls:
           m_Calls: []
-    - text: Choix 3
+    - text: I don't care if they raid a train. I'd even help them if I could.
       onSelect:
         m_PersistentCalls:
           m_Calls: []
