@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 314.28445, g: 91.90119, b: 55.86283, a: 1}
+  m_IndirectSpecularColor: {r: 530.58655, g: 592.11615, b: 713.9168, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9823,7 +9823,7 @@ Terrain:
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -19111,13 +19111,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621373157}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.41216266, y: -0.26646334, z: 0.0966994, w: 0.8658917}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 49.935, y: -36.376, z: -4.651}
 --- !u!114 &1621373160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21796,6 +21796,12 @@ PrefabInstance:
       propertyPath: realBarrelTransform
       value: 
       objectReference: {fileID: 1897607893}
+    - target: {fileID: 2928218041266429803, guid: 90b7111e42d3fc84697054687cfd4a32,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 00b8263310eadf04fa2e5b1cc1effa00,
+        type: 2}
     - target: {fileID: 3347935019572630530, guid: 90b7111e42d3fc84697054687cfd4a32,
         type: 3}
       propertyPath: m_Name
@@ -21854,6 +21860,11 @@ PrefabInstance:
     - target: {fileID: 5192987580766609393, guid: 90b7111e42d3fc84697054687cfd4a32,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989025062392455575, guid: 90b7111e42d3fc84697054687cfd4a32,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
