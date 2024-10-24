@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 10f;
+    private float speed = 6f;
 
-    private float sprintSpeedMultiplier = 1.75f; // 75% faster than basic movement
+    private float sprintSpeedMultiplier = 1.4f; // 40% faster than basic movement
     private float sprintSpeed;
 
     private float jumpForce = 250f;
