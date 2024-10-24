@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2927106609574601957}
   - component: {fileID: 7981843478565540756}
-  - component: {fileID: 3280029371825501175}
+  - component: {fileID: 373967391956481626}
   m_Layer: 0
   m_Name: DesertRock_1
   m_TagString: Untagged
@@ -58,8 +58,8 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1041044363886934653}
   m_Enabled: 1
---- !u!64 &3280029371825501175
-MeshCollider:
+--- !u!65 &373967391956481626
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -76,10 +76,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8062320433982805903, guid: 10c638426f6c5fc439abbb8722d95f21, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 8.664298, y: 6.541273, z: 7.198181}
+  m_Center: {x: -0.06640482, y: 2.7706366, z: 0.17322433}
 --- !u!1 &3353209029421078808
 GameObject:
   m_ObjectHideFlags: 0

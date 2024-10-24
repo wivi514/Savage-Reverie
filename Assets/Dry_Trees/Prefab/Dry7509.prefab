@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7231903619604404473}
   - component: {fileID: 4419863451105425716}
+  - component: {fileID: 3669615988629095247}
   m_Layer: 0
   m_Name: Dry7509
   m_TagString: Untagged
@@ -422,3 +423,26 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1447551117604536115}
   m_Enabled: 1
+--- !u!136 &3669615988629095247
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004922568447459907}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.43619308
+  m_Height: 5.320281
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.1601405, z: -0.47099552}
