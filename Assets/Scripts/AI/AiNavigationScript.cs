@@ -7,6 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Inventory))]
 [RequireComponent(typeof(CharacterHealth))]
+[RequireComponent(typeof(Rigidbody))]
 
 public class AiNavigationScript : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class AiNavigationScript : MonoBehaviour
     private int currentIndex = 0;
     private bool isIdle = false;
     private bool isShooting = false;
-    private string parentName; //To delete only used for debug.
 
     private int maxDistance = 100;
 
@@ -59,6 +59,7 @@ public class AiNavigationScript : MonoBehaviour
         agent.destination = statePositions[currentIndex].position.position;
         damage = (int)weapon.damage;
         speed = weapon.attackSpeed;
+        GetComponent<Rigidbody>().isKinematic = true; //Just so if they die they fall on the ground correctly
     }
 
     void Update()
@@ -116,7 +117,7 @@ public class AiNavigationScript : MonoBehaviour
 
     IEnumerator WaitRandomSeconds()
     {
-        float waitTime = Random.Range(4f, 15f); // Generate a random wait time between 2 to 8 seconds
+        float waitTime = Random.Range(4f, 15f); // Generate a random wait time between 4 to 15 seconds
         yield return new WaitForSeconds(waitTime);
 
         // Code to execute after waiting
@@ -132,13 +133,13 @@ public class AiNavigationScript : MonoBehaviour
 
     public void TriggerAttackState(GameObject attacker)
     {
-        Debug.Log("Attempting to TriggerAttackState");
+        Debug.Log("Triggering attack state");
 
         if (currentState != AIState.Attack) // Only trigger attack if not already attacking
         {
-            Debug.Log("Attack state is not active. Setting state to Attack.");
+            Debug.Log("Setting AI state to Attack.");
             currentState = AIState.Attack;
-            target = attacker;
+            target = attacker; // Assign the attacker as the target
             StartAttack(); // Immediate reaction to state change
         }
         else
@@ -154,21 +155,13 @@ public class AiNavigationScript : MonoBehaviour
         {
             if (agent.isOnNavMesh) // Ensure the agent is on the NavMesh
             {
-                agent.isStopped = true; // Stop the agent from moving
+                agent.isStopped = true; // Stop the agent from moving need to change this later so they move while attacking
                 AttackTarget();
             }
             else
             {
                 Debug.LogWarning("Agent is not on NavMesh!");
-                // Attempt to place the agent on the NavMesh
-                NavMeshHit hit;
-                if (NavMesh.SamplePosition(transform.position, out hit, maxDistance, NavMesh.AllAreas))
-                {
-                    transform.position = hit.position;
-                    agent.Warp(hit.position); // Warp agent to position on the NavMesh
-                    agent.isStopped = true;
-                    AttackTarget();
-                }
+                PlaceOnNavMeshAndAttack();
             }
         }
     }
@@ -176,33 +169,24 @@ public class AiNavigationScript : MonoBehaviour
 
     void AttackTarget()
     {
-        Debug.Log("AttackTarget method called.");
-
-        if (!isShooting)
+        if (target != null && !isShooting)
         {
-            Debug.Log("AI is not currently shooting. Preparing to shoot.");
-            isShooting = true; // Set this early to prevent multiple shots in one frame
+            Debug.Log("AI is preparing to shoot at the target.");
+            isShooting = true;
+
+            // Aim and shoot towards the target
             Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
-            GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.transform.position, Quaternion.LookRotation(directionToTarget));
+            GameObject bullet = Instantiate(bulletPrefab, weaponFirePoint.position, Quaternion.LookRotation(directionToTarget));
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
 
-            if (bulletComponent == null)
+            if (bulletComponent != null)
             {
-                Debug.LogError("Bullet component not found on the instantiated bullet object.");
-                return;
+                bulletComponent.damage = damage;
+                bulletComponent.speed = speed;
+                bulletComponent.attacker = gameObject; // Set AI as the attacker
+                bulletComponent.SetTarget(target.transform.position); // Set target position
+                StartCoroutine(ShootAtPlayer()); // Control shooting interval
             }
-
-            bulletComponent.damage = this.damage;
-            bulletComponent.speed = this.speed;
-            bulletComponent.attacker = this.gameObject;
-            bulletComponent.SetTarget(directionToTarget);
-
-            Debug.Log("Bullet instantiated and set up. Starting coroutine to manage shooting interval.");
-            StartCoroutine(ShootAtPlayer());
-        }
-        else
-        {
-            Debug.Log("AI is already shooting.");
         }
     }
 
@@ -216,8 +200,20 @@ public class AiNavigationScript : MonoBehaviour
     private IEnumerator ShootAtPlayer()
     {
         Debug.Log("ShootAtPlayer coroutine started.");
-        yield return new WaitForSeconds(1f); // Simulate delay for shooting interval
-        isShooting = false;
+        yield return new WaitForSeconds(1f); // Delay for shooting interval
+        isShooting = false; // Reset here to allow future shots
         Debug.Log("AI can shoot again.");
+    }
+
+    private void PlaceOnNavMeshAndAttack()
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, maxDistance, NavMesh.AllAreas))
+        {
+            transform.position = hit.position;
+            agent.Warp(hit.position);
+            agent.isStopped = false;
+            agent.destination = target.transform.position;
+        }
     }
 }

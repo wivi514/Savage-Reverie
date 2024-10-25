@@ -26,11 +26,11 @@ public class CharacterHealth : MonoBehaviour
                 var aiScript = GetComponent<AiNavigationScript>();
                 if (aiScript != null)
                 {
-                    aiScript.TriggerAttackState(attacker);
+                    aiScript.TriggerAttackState(attacker); // Pass the attacker as the target. Gotten from the bullet script
                 }
             }
         }
-        else
+        else //Handle death
         {
             if (characterSheet.faction == Faction.Player)
             {
@@ -39,21 +39,8 @@ public class CharacterHealth : MonoBehaviour
             }
             else
             {
-                // Disable AI and NavMeshAgent components, handle enemy death
-                var aiScript = GetComponent<AiNavigationScript>();
-                if (aiScript != null)
-                {
-                    aiScript.enabled = false;
-                }
-
-                var navAgent = GetComponent<NavMeshAgent>();
-                if (navAgent != null)
-                {
-                    navAgent.enabled = false;
-                }
-
+                DisableAiRagdoll();
                 isAlive = false;
-                // Handle any additional death logic here
             }
         }
     }
@@ -65,5 +52,18 @@ public class CharacterHealth : MonoBehaviour
         {
             characterSheet.currentHealth = characterSheet.maxHealth;
         }
+    }
+
+    private void DisableAiRagdoll()
+    {
+        // Disable AI and NavMeshAgent components, handle enemy death
+        var aiScript = GetComponent<AiNavigationScript>();
+        var navAgent = GetComponent<NavMeshAgent>();
+        var rb = GetComponent<Rigidbody>();
+
+
+        aiScript.enabled = false; //Disable all of these so the AI fall on the ground when they die
+        navAgent.enabled = false;
+        rb.isKinematic = false;
     }
 }
