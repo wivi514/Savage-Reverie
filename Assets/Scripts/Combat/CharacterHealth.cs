@@ -39,16 +39,7 @@ public class CharacterHealth : MonoBehaviour
             }
             else
             {
-                // Disable AI and NavMeshAgent components, handle enemy death
-                var aiScript = GetComponent<AiNavigationScript>();
-                var navAgent = GetComponent<NavMeshAgent>();
-                var rb = GetComponent<Rigidbody>();
-
-
-                aiScript.enabled = false; //Disable all of these so the AI fall on the ground when they die
-                navAgent.enabled = false;
-                rb.isKinematic = false;
-
+                DisableAiRagdoll();
                 isAlive = false;
             }
         }
@@ -61,5 +52,18 @@ public class CharacterHealth : MonoBehaviour
         {
             characterSheet.currentHealth = characterSheet.maxHealth;
         }
+    }
+
+    private void DisableAiRagdoll()
+    {
+        // Disable AI and NavMeshAgent components, handle enemy death
+        var aiScript = GetComponent<AiNavigationScript>();
+        var navAgent = GetComponent<NavMeshAgent>();
+        var rb = GetComponent<Rigidbody>();
+
+
+        aiScript.enabled = false; //Disable all of these so the AI fall on the ground when they die
+        navAgent.enabled = false;
+        rb.isKinematic = false;
     }
 }

@@ -17,7 +17,6 @@ public class AiNavigationScript : MonoBehaviour
     private int currentIndex = 0;
     private bool isIdle = false;
     private bool isShooting = false;
-    private string parentName; //To delete only used for debug.
 
     private int maxDistance = 100;
 
