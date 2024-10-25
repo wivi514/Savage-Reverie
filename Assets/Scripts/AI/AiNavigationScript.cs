@@ -7,6 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Interactable))]
 [RequireComponent(typeof(Inventory))]
 [RequireComponent(typeof(CharacterHealth))]
+[RequireComponent(typeof(Rigidbody))]
 
 public class AiNavigationScript : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class AiNavigationScript : MonoBehaviour
         agent.destination = statePositions[currentIndex].position.position;
         damage = (int)weapon.damage;
         speed = weapon.attackSpeed;
+        GetComponent<Rigidbody>().isKinematic = true; //Just so if they die they fall on the ground correctly
     }
 
     void Update()
@@ -216,8 +218,8 @@ public class AiNavigationScript : MonoBehaviour
     private IEnumerator ShootAtPlayer()
     {
         Debug.Log("ShootAtPlayer coroutine started.");
-        yield return new WaitForSeconds(1f); // Simulate delay for shooting interval
-        isShooting = false;
+        yield return new WaitForSeconds(1f); // Delay for shooting interval
+        isShooting = false; // Reset here to allow future shots
         Debug.Log("AI can shoot again.");
     }
 }
