@@ -50,7 +50,12 @@ public class Bullet : MonoBehaviour
         var characterHealth = other.GetComponent<CharacterHealth>();
         if (characterHealth != null)
         {
-            Debug.Log("Applying damage to " + other.name);
+            if(this.attacker.name == "Capsule and Scripts")
+            {
+                damage = attacker.GetComponent<EquippedWeapon>().damage;
+            }
+            Debug.Log("Applying" + damage + "damage to " + other.name);
+            Debug.Log("Attacker is:" + this.attacker.name);
             // Pass the attacker to the ApplyDamage method
             characterHealth.ApplyDamage(damage, attacker);
             Destroy(gameObject); // Destroy bullet on hit

@@ -26,11 +26,11 @@ public class CharacterHealth : MonoBehaviour
                 var aiScript = GetComponent<AiNavigationScript>();
                 if (aiScript != null)
                 {
-                    aiScript.TriggerAttackState(attacker);
+                    aiScript.TriggerAttackState(attacker); // Pass the attacker as the target. Gotten from the bullet script
                 }
             }
         }
-        else
+        else //Handle death
         {
             if (characterSheet.faction == Faction.Player)
             {
