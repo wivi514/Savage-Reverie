@@ -19,9 +19,17 @@ public class Interact : MonoBehaviour
         interactionText = GameObject.Find("Interaction Text").GetComponent<TMP_Text>();
         gameobjectText = GameObject.Find("GameObject Text").GetComponent<TMP_Text>();
         NPCNameText = GameObject.Find("NPC Name Text").GetComponent<TMP_Text>();
-        interactionText.enabled = false;
-        gameobjectText.enabled = false;
-        NPCNameText.enabled = false;
+
+        if (interactionText == null || gameobjectText == null || NPCNameText == null)
+        {
+            Debug.LogError("UI Text components are not properly assigned in Interact.cs.");
+        }
+        else
+        {
+            interactionText.enabled = false;
+            gameobjectText.enabled = false;
+            NPCNameText.enabled = false;
+        }
     }
 
     void Update()
@@ -31,9 +39,8 @@ public class Interact : MonoBehaviour
 
     public void TryInteract()
     {
-        if (hasPreviousHit)
+        if (hasPreviousHit && previousHit.collider != null)
         {
-            // Attempt to interact with the object
             Interactable interactableObject = previousHit.collider.GetComponent<Interactable>();
             if (interactableObject != null)
             {
@@ -41,10 +48,18 @@ public class Interact : MonoBehaviour
                 DialogueHolder dialogueHolder = interactableObject.GetComponent<DialogueHolder>();
                 if (dialogueHolder != null)
                 {
-                    // Trigger dialogue UI update
                     DialogueManager.Instance.StartDialogue(dialogueHolder.NPCDialogue);
                 }
             }
+            else
+            {
+                ClearUI();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No valid hit to interact with.");
+            ClearUI();
         }
     }
 
@@ -55,7 +70,7 @@ public class Interact : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
-            if (!hasPreviousHit || hit.collider.gameObject != previousHit.collider.gameObject)
+            if ((!hasPreviousHit || previousHit.collider == null) || hit.collider.gameObject != previousHit.collider.gameObject)
             {
                 UpdateInteractionUI(hit);
             }
@@ -64,6 +79,7 @@ public class Interact : MonoBehaviour
         {
             ClearUI();
         }
+
         previousHit = hit;
         hasPreviousHit = hit.collider != null;
     }
@@ -102,6 +118,7 @@ public class Interact : MonoBehaviour
                 interactionText.enabled = false;
             }
         }
+        //To see the inventory of dead character
         else if (characterHealth != null)
         {
             if (characterHealth.isAlive == false && containerInventory != null)
@@ -122,7 +139,7 @@ public class Interact : MonoBehaviour
         }
     }
 
-    void ClearUI()
+    public void ClearUI()
     {
         interactionText.enabled = false;
         gameobjectText.enabled = false;

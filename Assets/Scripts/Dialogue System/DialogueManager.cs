@@ -123,6 +123,12 @@ public class DialogueManager : MonoBehaviour
 
     public void ConfirmResponse()
     {
+        if (currentDialogue == null || responses == null || selectedResponseIndex >= responses.Count)
+        {
+            Debug.LogWarning("Invalid dialogue state in ConfirmResponse.");
+            return;
+        }
+
         DialogueOption selectedResponse = currentDialogue.responses[selectedResponseIndex];
         selectedResponse.onSelect.Invoke();
     }

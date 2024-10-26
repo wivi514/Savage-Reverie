@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd95eee159f35b40ab81ae1e1af014d, type: 3}
   m_Name: Gold Bar
   m_EditorClassIdentifier: 
-  objectName: Gold Bar
-  description: Gold Bar
+  objectName: Gold bar
+  description: Gold bar
   uiArtwork: {fileID: 21300000, guid: 2e22c69617e32494baa22cd7f98f1a47, type: 3}
   type: 3
   weight: 0

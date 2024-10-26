@@ -37,6 +37,7 @@ public class Interactable : MonoBehaviour
             Inventory playerInventory = GameObject.Find("Player Inventory").GetComponent<Inventory>();
             SceneObjectInformation sceneObjectInformation = gameObject.GetComponent<SceneObjectInformation>();
             playerInventory.AddItem(sceneObjectInformation.scriptableObject);
+            GameObject.FindObjectOfType<Interact>()?.ClearUI();
             Destroy(gameObject); // Destroy the interactable object from the scene once it's picked up
         }
         #endregion
