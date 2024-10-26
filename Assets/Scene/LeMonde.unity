@@ -11371,9 +11371,9 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 200
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_MaxSpeed: 150
+    m_AccelTime: 0
+    m_DecelTime: 0
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -11395,9 +11395,9 @@ MonoBehaviour:
   m_HorizontalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 200
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_MaxSpeed: 150
+    m_AccelTime: 0
+    m_DecelTime: 0
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
@@ -11493,15 +11493,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1632620980304302, guid: 879a8d323fc98e145966106e9d2018a3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 890034688}
-    - targetCorrespondingSourceObject: {fileID: 1632620980304302, guid: 879a8d323fc98e145966106e9d2018a3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 890034687}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 879a8d323fc98e145966106e9d2018a3, type: 3}
 --- !u!4 &890034685 stripped
 Transform:
@@ -11509,41 +11501,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 890034684}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &890034686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1632620980304302, guid: 879a8d323fc98e145966106e9d2018a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 890034684}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &890034687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890034686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bd256f5873f28c418bfb2b1c24fde8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &890034688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890034686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2277ef51b777c14c9af94a278e99e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 9a3b10f6fc37f05428e48ac31b74bbc6, type: 2}
-  - {fileID: 11400000, guid: 19152ff8d5683854fbee4fe685937417, type: 2}
-  - {fileID: 11400000, guid: 808d054d2646ea340a40ce3f51efb5e8, type: 2}
-  inventoryItems: []
 --- !u!1 &902157905
 GameObject:
   m_ObjectHideFlags: 0
@@ -23027,15 +22984,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1422698500791382, guid: 8436ade1af7215243a097f79db2a91fb,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2010010423}
-    - targetCorrespondingSourceObject: {fileID: 1422698500791382, guid: 8436ade1af7215243a097f79db2a91fb,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2010010422}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8436ade1af7215243a097f79db2a91fb, type: 3}
 --- !u!4 &2010010420 stripped
 Transform:
@@ -23043,38 +22992,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2010010419}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2010010421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1422698500791382, guid: 8436ade1af7215243a097f79db2a91fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 2010010419}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2010010422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010010421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2277ef51b777c14c9af94a278e99e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: []
-  inventoryItems: []
---- !u!114 &2010010423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010010421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bd256f5873f28c418bfb2b1c24fde8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2013251110
 PrefabInstance:
   m_ObjectHideFlags: 0
